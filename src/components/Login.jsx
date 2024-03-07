@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { link } from "react-router-dom";
 
 const Login = () => {
   const [isChecked, setisChecked] = useState(true);
@@ -18,7 +17,7 @@ const Login = () => {
     >
       <div className="bg-white dark:bg-gray-900 shadow-md rounded-lg px-8 py-6 max-w-md">
         <h1 className="text-2xl font-bold text-center mb-4 dark:text-gray-200">
-          Welcome Back!
+          LOG IN 
         </h1>
         <form>
           <div className="mb-4">
@@ -50,12 +49,12 @@ const Login = () => {
               placeholder="Enter your password"
               required
             />
-            <link
+            <a
               to="#"
               className="text-xs text-gray-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Forgot Password?
-            </link>
+            </a>
           </div>
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
@@ -82,7 +81,8 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-whitey
+             bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Login
           </button>
@@ -90,6 +90,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Login;
