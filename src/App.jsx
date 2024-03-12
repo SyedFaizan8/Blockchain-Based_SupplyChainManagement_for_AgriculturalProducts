@@ -1,13 +1,10 @@
 
-import Link from "./components/Link.jsx";
-
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
   return (
     <>
-      <Link/>
-      <Login />
-      <Signup/>
+    <Navbar/>
     </>
   );
 }
