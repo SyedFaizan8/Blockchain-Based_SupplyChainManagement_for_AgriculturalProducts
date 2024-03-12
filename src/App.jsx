@@ -1,9 +1,11 @@
-import Login from "./components/Login.jsx";
-import Signup from "./components/Signup.jsx";
+
+import Link from "./components/Link.jsx";
+
 
 function App() {
   return (
     <>
+      <Link/>
       <Login />
       <Signup/>
     </>

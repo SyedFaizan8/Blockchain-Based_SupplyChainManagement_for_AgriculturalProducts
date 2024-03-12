@@ -73,10 +73,10 @@ const Login = () => {
               </label>
             </div>
             <label
-              href="#"
+              href=""
               className="text-xs text-indigo-500 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Create Account
+              Sign In
             </label>
           </div>
           <button
