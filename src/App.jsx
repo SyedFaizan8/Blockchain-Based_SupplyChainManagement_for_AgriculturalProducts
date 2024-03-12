@@ -1,11 +1,10 @@
-import Login from "./components/Login.jsx";
-import Signup from "./components/Signup.jsx";
+
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
   return (
     <>
-      <Login />
-      <Signup/>
+    <Navbar/>
     </>
   );
 }

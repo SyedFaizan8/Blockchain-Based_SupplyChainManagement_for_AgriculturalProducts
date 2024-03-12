@@ -76,20 +76,13 @@ const Signup = () => {
           </div>
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
-
-              <input
-                type="checkbox"
-                id="remember"
-                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:outline-none"
-                checked={isChecked}
-                onChange={handlechange}
-              />
-              <label
-                htmlFor="remember"
-                className="ml-2 block text-sm text-gray-700 dark:text-gray-300"
-              >
-                Remember me
-              </label>
+              
+            <label
+              href=""
+              className="text-xs text-indigo-500 hover:text-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 "
+            >
+              Sign In
+            </label>
             </div>
             
           </div>
