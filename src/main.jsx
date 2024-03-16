@@ -6,9 +6,13 @@ import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Post from "./pages/Post.jsx";
+// import HomePage from "./pages/HomePage.jsx";
+// import FarmerHome from "./components/Farmer/FarmerHome.jsx";
+// import CropRegisteration from "./components/Farmer/CropRegisteration.jsx";
+import MidtermVerify from "./components/Farmer/MidtermVerify.jsx";
+import RequestCertification from "./components/Farmer/RequestCertification.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <RequestCertification />,
       },
       {
         path: "/login",
