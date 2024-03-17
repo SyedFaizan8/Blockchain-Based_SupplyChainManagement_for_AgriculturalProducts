@@ -10,9 +10,10 @@ import Login from "./pages/Login.jsx";
 import Post from "./pages/Post.jsx";
 // import HomePage from "./pages/HomePage.jsx";
 // import FarmerHome from "./components/Farmer/FarmerHome.jsx";
-// import CropRegisteration from "./components/Farmer/CropRegisteration.jsx";
-import MidtermVerify from "./components/Farmer/MidtermVerify.jsx";
-import RequestCertification from "./components/Farmer/RequestCertification.jsx";
+// // import CropRegisteration from "./components/Farmer/CropRegisteration.jsx";
+// import MidtermVerify from "./components/Farmer/MidtermVerify.jsx";
+// import RequestCertification from "./components/Farmer/RequestCertification.jsx";
+import AuthorityHome from "./components/Authority/AuthorityHome.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <RequestCertification />,
+        element: <AuthorityHome />,
       },
       {
         path: "/login",

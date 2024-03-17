@@ -12,19 +12,41 @@ const FarmerHome = () => {
       <div className="text-gray-900 z-10 relative border-4 border-solid border-black">
         <div className="">
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
-            <Button className="w-52">Crop Registration</Button>
+            <Button
+              className="w-52"
+              onClick={() => navigate("/crop-registration")}
+            >
+              Crop Registration
+            </Button>
           </div>
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
-            <Button className="w-52">Apply mid term verification</Button>
+            <Button
+              className="w-52"
+              onClick={() => navigate("/apply-mid-term-verification")}
+            >
+              Apply mid term verification
+            </Button>
           </div>
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
-            <Button className="w-52">Request for Certification</Button>
+            <Button
+              className="w-52"
+              onClick={() => navigate("/request-for-certification")}
+            >
+              Request for Certification
+            </Button>
           </div>
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
-            <Button className="w-52">Orders from </Button>
+            <Button className="w-52" onClick={() => navigate("/orders-from")}>
+              Orders from{" "}
+            </Button>
           </div>
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black ">
-            <Button className="w-52">Pick up from Couriers</Button>
+            <Button
+              className="w-52"
+              onClick={() => navigate("/pick-up-from-courier")}
+            >
+              Pick up from Couriers
+            </Button>
           </div>
         </div>
       </div>
