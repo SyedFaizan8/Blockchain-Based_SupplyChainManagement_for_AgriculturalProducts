@@ -1,27 +1,31 @@
-// import { useSate } from "react";
+import React from "react";
+// import { useState, useEffect } from "react";
 // import { useDispatch } from "react-redux";
-// import Login from "./components/Login.jsx";
+
+// import { login, logout } from "./store/authSlice";
 import { Outlet } from "react-router-dom";
-import Header from "./components/Header/Header.jsx";
-import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
-  // const [loading, setLoading] = useSate(true);
-  // const dispatch = useDispatch;
+  // const [loading, setLoading] = useState(true);
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   const logedin = localStorage.getItem("logedin");
+  //   if (logedin) {
+  //     dispatch(login({ logedin }));
+  //   } else {
+  //     dispatch(logout());
+  //   }
+  //   setLoading(false);
+  // }, []);
 
   return (
-    <>
-      <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
-        <div className="w-full block">
-          <Header />
-          <main>
-            <Outlet />
-          </main>
-          <Footer />
-        </div>
+    <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
+      <div className="w-full block">
+        <Outlet />
       </div>
-    </>
+    </div>
   );
 }
-
+// !loading ? () : null;
 export default App;

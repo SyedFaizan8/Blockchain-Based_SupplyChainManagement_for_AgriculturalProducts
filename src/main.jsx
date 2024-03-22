@@ -2,26 +2,31 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import store from "./store/store.js";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import { AuthLayout } from "./components/index.js";
+import Login from "./components/Login.jsx";
+import Signup from "./pages/Signup";
+import { Cart, Orders, Profile } from "./components/Customer/index.js";
 import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
-import Home from "./components/Home.jsx";
-import FarmerHome from "./components/Farmer/FarmerHome.jsx";
-import AuthorityHome from "./components/Authority/AuthorityHome.jsx";
-// import CropValidation from "./components/Authority/CropValidation.jsx";
-// import FinalCertification from "./components/Authority/FinalCertification.jsx";
-// import MidtermVerification from "./components/Authority/MidtermVerification.jsx";
-// import NewApplication from "./components/Authority/NewApplication.jsx";
-// import CropRegisteration from "./components/Farmer/CropRegisteration.jsx";
-// import MidtermVerify from "./components/Farmer/MidtermVerify.jsx";
-// import OrdersFrom from "./components/Farmer/OrdersFrom.jsx";
-// import PickUpCourier from "./components/Farmer/PickUpCourier.jsx";
-// import RequestCertification from "./components/Farmer/RequestCertification.jsx";
+  Farmer,
+  FarmerHome,
+  CropRegisteration,
+  MidtermVerify,
+  OrdersFrom,
+  PickUpCourier,
+  RequestCertification,
+} from "./components/Farmer/index.js";
+import {
+  Authority,
+  AuthorityHome,
+  CropValidation,
+  FinalCertification,
+  MidtermVerification,
+  NewApplication,
+} from "./components/Authority/index.js";
 
 const router = createBrowserRouter([
   {
@@ -48,21 +53,147 @@ const router = createBrowserRouter([
           </AuthLayout>
         ),
       },
+
+      // here starts for the customer
+
       {
-        path: "/farmer-home",
+        path: "/Cart",
         element: (
-          <AuthLayout authentication requiredRole="farmer">
-            <FarmerHome />
+          <AuthLayout requiredRole="customer" authentication={true}>
+            <Cart />
           </AuthLayout>
         ),
       },
       {
-        path: "/authority-home",
+        path: "/Orders",
         element: (
-          <AuthLayout authentication requiredRole="authority">
-            <AuthorityHome />
+          <AuthLayout requiredRole="customer" authentication={true}>
+            <Orders />
           </AuthLayout>
         ),
+      },
+      {
+        path: "/Profile",
+        element: (
+          <AuthLayout requiredRole="customer" authentication={true}>
+            <Profile />
+          </AuthLayout>
+        ),
+      },
+
+      // here starts farmer routes
+
+      {
+        path: "/farmer",
+        element: (
+          <AuthLayout requiredRole="farmer" authentication={false}>
+            <Farmer />
+          </AuthLayout>
+        ),
+        children: [
+          {
+            path: "/farmer",
+            element: (
+              <AuthLayout requiredRole="farmer" authentication={true}>
+                <FarmerHome />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "/farmer/crop-registration",
+            element: (
+              <AuthLayout requiredRole="farmer" authentication={true}>
+                <CropRegisteration />
+              </AuthLayout>
+            ),
+          },
+
+          {
+            path: "/farmer/midterm-verify",
+            element: (
+              <AuthLayout requiredRole="farmer" authentication={true}>
+                <MidtermVerify />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "/farmer/request-certification",
+            element: (
+              <AuthLayout requiredRole="farmer" authentication={true}>
+                <RequestCertification />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "/farmer/orders-from",
+            element: (
+              <AuthLayout requiredRole="farmer" authentication={true}>
+                <OrdersFrom />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "/farmer/pick-up-fromcourier",
+            element: (
+              <AuthLayout requiredRole="farmer" authentication={true}>
+                <PickUpCourier />
+              </AuthLayout>
+            ),
+          },
+        ],
+      },
+
+      // here starts authority routes
+
+      {
+        path: "/authority",
+        element: (
+          <AuthLayout requiredRole="authority" authentication={true}>
+            <Authority />
+          </AuthLayout>
+        ),
+        children: [
+          {
+            path: "/authority",
+            element: (
+              <AuthLayout requiredRole="authority" authentication={true}>
+                <AuthorityHome />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "/authority/new-applications",
+            element: (
+              <AuthLayout requiredRole="authority" authentication={true}>
+                <NewApplication />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "/authority/crop-validation",
+            element: (
+              <AuthLayout requiredRole="authority" authentication={true}>
+                <CropValidation />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "/authority/midterm-verification",
+            element: (
+              <AuthLayout requiredRole="authority" authentication={true}>
+                <MidtermVerification />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "/authority/final-certification",
+            element: (
+              <AuthLayout requiredRole="authority" authentication={true}>
+                <FinalCertification />
+              </AuthLayout>
+            ),
+          },
+        ],
       },
     ],
   },

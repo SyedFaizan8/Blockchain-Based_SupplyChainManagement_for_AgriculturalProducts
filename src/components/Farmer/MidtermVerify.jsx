@@ -1,16 +1,13 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import Input from "../Input.jsx";
+import Button from "../Button.jsx";
+import { useForm } from "react-hook-form";
 
 const MidtermVerify = () => {
+  const { register, handleSubmit } = useForm();
+  const create = async (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <img
@@ -20,45 +17,72 @@ const MidtermVerify = () => {
       ></img>
       <div className=" z-10 relative overflow-hidden">
         <div className="flex justify-center py-5  px-12 items-center w-screen">
-          <Card className="w-full">
-            <CardHeader className="flex justify-center items-center text-xl">
-              <CardTitle>Mid Term Verification</CardTitle>
-              {/* <CardDescription>
-                Deploy your new project in one-click.
-              </CardDescription> */}
-            </CardHeader>
-            <CardContent>
-              <form>
+          <div className="w-full">
+            <div className="flex justify-center items-center text-xl">
+              <div>Mid Term Verification</div>
+            </div>
+            <div>
+              <form onSubmit={handleSubmit(create)}>
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="cropname">Crop Name</Label>
-                    <Input id="cropname" placeholder="Enter crop name" />
+                    <label htmlFor="cropname">Crop Name</label>
+                    <Input
+                      id="cropname"
+                      placeholder="Enter crop name"
+                      {...register("cropname", {
+                        required: true,
+                      })}
+                    />
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="formerName">Former Name</Label>
-                    <Input id="formerName" placeholder="Enter Name here" />
+                    <label htmlFor="farmer-name">Former Name</label>
+                    <Input
+                      id="farmer-name"
+                      placeholder="Enter Name here"
+                      {...register("farmer-name", {
+                        required: true,
+                      })}
+                    />
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="Area">Area in Acres</Label>
-                    <Input id="Area" placeholder="Enter no of acres" />
+                    <label htmlFor="area">Area in Acres</label>
+                    <Input
+                      id="area"
+                      placeholder="Enter no of acres"
+                      {...register("area", {
+                        required: true,
+                      })}
+                    />
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="timeRemainigHarvest">
+                    <label htmlFor="timeRemainigHarvest">
                       Time remaining till harvest
-                    </Label>
-                    <Input id="timeRemainingHarvest" placeholder="Enter here" />
+                    </label>
+                    <Input
+                      id="time-remaining-harvest"
+                      placeholder="Enter here"
+                      {...register("time-remaining-harvest", {
+                        required: true,
+                      })}
+                    />
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <Label htmlFor="info">Aditional info</Label>
-                    <Input id="info" placeholder="Additional info" />
+                    <label htmlFor="info">Aditional info</label>
+                    <Input
+                      id="info"
+                      placeholder="Additional info"
+                      {...register("info", {
+                        required: true,
+                      })}
+                    />
                   </div>
                 </div>
+                <div className="flex">
+                  <Button type="submit">Submit</Button>
+                </div>
               </form>
-            </CardContent>
-            <CardFooter className="flex">
-              <Button>Submit</Button>
-            </CardFooter>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </>

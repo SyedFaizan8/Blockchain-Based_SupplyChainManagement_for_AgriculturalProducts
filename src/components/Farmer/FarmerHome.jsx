@@ -1,7 +1,10 @@
 import React from "react";
-import { Button } from "../ui/button";
+import Button from "../Button.jsx";
+import { useNavigate } from "react-router-dom";
 
 const FarmerHome = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <img
@@ -13,37 +16,40 @@ const FarmerHome = () => {
         <div className="">
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
             <Button
-              className="w-52"
-              onClick={() => navigate("/crop-registration")}
+              onClick={() => navigate("/farmer/crop-registration")}
+              className={"w-52"}
             >
               Crop Registration
             </Button>
           </div>
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
             <Button
-              className="w-52"
-              onClick={() => navigate("/apply-mid-term-verification")}
+              onClick={() => navigate("/farmer/midterm-verify")}
+              className={"w-52"}
             >
               Apply mid term verification
             </Button>
           </div>
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
             <Button
-              className="w-52"
-              onClick={() => navigate("/request-for-certification")}
+              onClick={() => navigate("/farmer/request-certification")}
+              className={"w-52"}
             >
               Request for Certification
             </Button>
           </div>
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
-            <Button className="w-52" onClick={() => navigate("/orders-from")}>
+            <Button
+              onClick={() => navigate("/farmer/orders-from")}
+              className="w-52"
+            >
               Orders from{" "}
             </Button>
           </div>
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black ">
             <Button
+              onClick={() => navigate("/farmer/pick-up-fromcourier")}
               className="w-52"
-              onClick={() => navigate("/pick-up-from-courier")}
             >
               Pick up from Couriers
             </Button>

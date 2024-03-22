@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-export default function Protected({ children, authentication = true }) {
+export default function Protected({
+  children,
+  authentication = true,
+  requiredRole,
+}) {
   const navigate = useNavigate();
   const [loader, setLoader] = useState(true);
   const authStatus = useSelector((state) => state.auth.status);
@@ -22,11 +26,20 @@ export default function Protected({ children, authentication = true }) {
     if (authentication && authStatus !== authentication) {
       navigate("/login");
     } else if (!authentication && authStatus !== authentication) {
-      navigate("/");
-    }
-
-    if (requiredRole && authRole !== requiredRole) {
-      navigate("/");
+      switch (authRole) {
+        case "customer":
+          navigate("/");
+          break;
+        case "farmer":
+          navigate("/farmer");
+          break;
+        case "authority":
+          navigate("/authority");
+          break;
+        default:
+          navigate("/");
+          break;
+      }
     }
     setLoader(false);
   }, [authStatus, authRole, navigate, authentication, requiredRole]);
