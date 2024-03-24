@@ -9,7 +9,7 @@ const scrollSlice = createSlice({
   initialState,
   reducers: {
     Section: (state, action) => {
-      state.scrollToSection = action.payload;
+      state.Section = action.payload;
     },
   },
 });
