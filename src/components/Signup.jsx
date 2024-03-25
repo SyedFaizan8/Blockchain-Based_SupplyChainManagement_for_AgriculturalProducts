@@ -61,7 +61,7 @@ function Signup() {
         <div className="mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10">
           <div className="mb-2 flex justify-center">
             <span className="inline-block w-full max-w-[100px]">
-              <Logo width="100%" />
+              <img src="/images/logo.png" className="w-3/4" alt="Logo" />
             </span>
           </div>
           <h2 className="text-center text-2xl font-bold leading-tight">
@@ -83,7 +83,7 @@ function Signup() {
               <Select
                 options={["customer", "farmer", "authority"]}
                 label="Role"
-                className="mb-4"
+                className="mt-4"
                 {...register("role", { required: true })}
               />
 

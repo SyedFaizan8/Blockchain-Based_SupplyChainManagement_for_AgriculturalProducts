@@ -22,57 +22,92 @@ const CropRegisteration = () => {
       ></img>
       <div className=" z-10 relative overflow-hidden">
         <div className="flex justify-center py-5  px-12 items-center w-screen">
-          <div className="w-full">
+          <div className="w-4/5">
             <div className="flex justify-center items-center text-xl">
-              <div>Crop Registeration</div>
-              {/* <CardDescription>
-                Deploy your new project in one-click.
-              </CardDescription> */}
+              <div className="font-bold text-4xl">Crop Registeration</div>
             </div>
             <div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="cropname">Crop Name</label>
+                    <label htmlFor="farmer_name" className="font-bold">
+                      Farmer Name
+                    </label>
                     <Input
+                      className="bg-green-100"
+                      id="farmer_name"
+                      placeholder="Enter crop name"
+                      {...register("farmer_name", {
+                        required: true,
+                      })}
+                    />
+                    {errors.farmer_name && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex flex-col space-y-1.5">
+                    <label htmlFor="cropname" className="font-bold">
+                      Crop Name
+                    </label>
+                    <Input
+                      className="bg-green-100"
                       id="cropname"
                       placeholder="Enter crop name"
                       {...register("cropname", {
                         required: true,
                       })}
                     />
-                    {errors.cropname && <span>error in crop name</span>}
+                    {errors.cropname && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="area">Plot/Land Address</label>
+                    <label htmlFor="area" className="font-bold">
+                      Plot/Land Address
+                    </label>
                     <Input
+                      className="bg-green-100"
                       id="area"
                       placeholder="Enter Address"
                       {...register("area", {
                         required: true,
                       })}
                     />
-                    {errors.area && <span>error in area</span>}
+                    {errors.area && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="cultivation">
+                    <label htmlFor="cultivation" className="font-bold">
                       Specify the area of cultivation in acres
                     </label>
                     <Input
+                      className="bg-green-100"
                       id="cultivation"
                       placeholder="Enter no of acres of cultivation area"
                       {...register("cultivation", {
                         required: true,
                       })}
                     />
-                    {errors.cultivation && <span>error in cultivation</span>}
+                    {errors.cultivation && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
                   </div>
 
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="timeforharvest">
+                    <label htmlFor="timeforharvest" className="font-bold">
                       Time required till harvest
                     </label>
                     <Input
+                      className="bg-green-100"
                       id="timeforharvest"
                       placeholder="Enter here"
                       {...register("timeforharvest", {
@@ -80,37 +115,31 @@ const CropRegisteration = () => {
                       })}
                     />
                     {errors.timeforharvest && (
-                      <span>error in timeforharvest</span>
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
                     )}
                   </div>
 
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="yieldperacre">
+                    <label htmlFor="yieldperacre" className="font-bold">
                       Expected yield per Acre
                     </label>
                     <Input
+                      className="bg-green-100"
                       id="yieldperacre"
                       placeholder="Enter here"
                       {...register("yieldperacre", {
                         required: true,
                       })}
                     />
-                    {errors.yieldperacre && <span>error in yieldperacre </span>}
-                  </div>
-
-                  <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="info">Aditional info</label>
-                    <Input
-                      id="info"
-                      placeholder="Additional info"
-                      {...register("info", {
-                        required: true,
-                      })}
-                    />
-                    {errors.info && <span>error in info</span>}
+                    {errors.yieldperacre && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
                   </div>
                 </div>
-                <br />
                 <div className="flex my-4">
                   <Button type="submit">Submit</Button>
                 </div>

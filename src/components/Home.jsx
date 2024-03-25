@@ -165,6 +165,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <div className="h-[2px] w-full bg-[#52B788]"></div>
 
         {/* Contact us */}
         <Element name="contact-us">
@@ -236,6 +237,7 @@ const Home = () => {
             </div>
           </div>
         </Element>
+        <div className="h-[2px] w-full bg-[#52B788]"></div>
         <Footer />
       </div>
 

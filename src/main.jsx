@@ -28,6 +28,8 @@ import {
   MidtermVerification,
   NewApplication,
 } from "./components/Authority/index.js";
+import ProductDetails from "./components/testing/ProductDetails.jsx";
+import ProductList from "./components/testing/ProductList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -163,18 +165,18 @@ const router = createBrowserRouter([
             ),
           },
           {
-            path: "/authority/new-applications",
+            path: "/authority/crop-validation",
             element: (
               <AuthLayout requiredRole="authority" authentication={true}>
-                <NewApplication />
+                <ProductList />
               </AuthLayout>
             ),
           },
           {
-            path: "/authority/crop-validation",
+            path: "/authority/crop-validation/:id",
             element: (
               <AuthLayout requiredRole="authority" authentication={true}>
-                <CropValidation />
+                <ProductDetails />
               </AuthLayout>
             ),
           },

@@ -16,14 +16,6 @@ const AuthorityHome = () => {
           <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
             <Button
               className="w-52"
-              onClick={() => navigate("/authority/new-applications")}
-            >
-              New Applications
-            </Button>
-          </div>
-          <div className="flex justify-center items-center px-10 py-10 border-4 border-solid border-black">
-            <Button
-              className="w-52"
               onClick={() => navigate("/authority/crop-validation")}
             >
               Crop Validation

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login as authLogin } from "../store/authSlice";
-import { Button, Input, Logo } from "./index";
+import { Button, Input, Logo, Select } from "./index";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 
@@ -38,6 +38,7 @@ function Login() {
       setError(error.message);
     }
   };
+
   return (
     <>
       <img
@@ -49,7 +50,7 @@ function Login() {
         <div className="mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10">
           <div className="mb-2 flex justify-center">
             <span className="inline-block w-full max-w-[100px]">
-              <Logo width="100%" />
+              <img src="/images/logo.png" className="w-3/4" alt="Logo" />
             </span>
           </div>
           <h2 className="text-center text-2xl font-bold leading-tight">
@@ -67,6 +68,11 @@ function Login() {
           {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
           <form onSubmit={handleSubmit(login)} className="mt-8">
             <div className="space-y-5">
+              <Select
+                options={["customer", "farmer", "authority"]}
+                label="Role"
+                {...register("role", { required: true })}
+              />
               <Input
                 label="Email: "
                 placeholder="Enter your email"

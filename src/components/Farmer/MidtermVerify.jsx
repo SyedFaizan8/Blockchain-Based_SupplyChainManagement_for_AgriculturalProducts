@@ -17,67 +17,106 @@ const MidtermVerify = () => {
       ></img>
       <div className=" z-10 relative overflow-hidden">
         <div className="flex justify-center py-5  px-12 items-center w-screen">
-          <div className="w-full">
+          <div className="w-4/5">
             <div className="flex justify-center items-center text-xl">
-              <div>Mid Term Verification</div>
+              <div className="font-bold text-4xl">Crop Registeration</div>
             </div>
             <div>
-              <form onSubmit={handleSubmit(create)}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="cropname">Crop Name</label>
+                    <label htmlFor="farmer_name" className="font-bold">
+                      Farmer Name
+                    </label>
                     <Input
+                      className="bg-green-100"
+                      id="farmer_name"
+                      placeholder="Enter crop name"
+                      {...register("farmer_name", {
+                        required: true,
+                      })}
+                    />
+                    {errors.farmer_name && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex flex-col space-y-1.5">
+                    <label htmlFor="cropname" className="font-bold">
+                      Crop Name
+                    </label>
+                    <Input
+                      className="bg-green-100"
                       id="cropname"
                       placeholder="Enter crop name"
                       {...register("cropname", {
                         required: true,
                       })}
                     />
+                    {errors.cropname && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="farmer-name">Former Name</label>
+                    <label htmlFor="area" className="font-bold">
+                      Area in acre
+                    </label>
                     <Input
-                      id="farmer-name"
-                      placeholder="Enter Name here"
-                      {...register("farmer-name", {
-                        required: true,
-                      })}
-                    />
-                  </div>
-                  <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="area">Area in Acres</label>
-                    <Input
+                      className="bg-green-100"
                       id="area"
-                      placeholder="Enter no of acres"
+                      placeholder="Area in acre"
                       {...register("area", {
                         required: true,
                       })}
                     />
+                    {errors.area && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="timeRemainigHarvest">
-                      Time remaining till harvest
+                    <label htmlFor="cultivation" className="font-bold">
+                      Progress
                     </label>
                     <Input
-                      id="time-remaining-harvest"
-                      placeholder="Enter here"
-                      {...register("time-remaining-harvest", {
+                      className="bg-green-100"
+                      id="progress"
+                      placeholder="Enter Progress"
+                      {...register("progress", {
                         required: true,
                       })}
                     />
+                    {errors.progress && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
                   </div>
+
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="info">Aditional info</label>
+                    <label htmlFor="timeforharvest" className="font-bold">
+                      Months remaining till harvest
+                    </label>
                     <Input
-                      id="info"
-                      placeholder="Additional info"
-                      {...register("info", {
+                      className="bg-green-100"
+                      id="timeremaing"
+                      placeholder="Enter here"
+                      {...register("timeremaing", {
                         required: true,
                       })}
                     />
+                    {errors.timeremaing && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
                   </div>
                 </div>
-                <div className="flex">
+                <div className="flex my-4">
                   <Button type="submit">Submit</Button>
                 </div>
               </form>
