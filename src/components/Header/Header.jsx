@@ -4,14 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/authSlice.js";
 import { Section } from "../../store/scrollSlice.js";
 import Button from "../Button.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const authStatus = useSelector((state) => state.auth.status);
   const authRole = useSelector((state) => state.auth.role);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = (sectionId) => {
-    dispatch(Section(sectionId));
+    console.log(authRole, sectionId);
+    if (authRole === "customer") navigate("/productList");
+    else dispatch(Section(sectionId));
   };
 
   return (
@@ -79,7 +83,7 @@ export default function Header() {
                   <Link
                     to="/"
                     className=" block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700"
-                    onClick={() => handleClick("products")}
+                    onClick={handleClick("Products")}
                   >
                     Products
                   </Link>

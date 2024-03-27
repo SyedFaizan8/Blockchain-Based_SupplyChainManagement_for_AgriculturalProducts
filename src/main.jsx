@@ -10,7 +10,13 @@ import Home from "../src/components/Home.jsx";
 import { AuthLayout } from "./components/index.js";
 import Login from "./components/Login.jsx";
 import Signup from "./pages/Signup";
-import { Cart, Orders, Profile } from "./components/Customer/index.js";
+import {
+  Cart,
+  Orders,
+  Profile,
+  Product,
+  ProductList,
+} from "./components/Customer/index.js";
 import {
   Farmer,
   FarmerHome,
@@ -29,7 +35,7 @@ import {
   NewApplication,
 } from "./components/Authority/index.js";
 import ProductDetails from "./components/testing/ProductDetails.jsx";
-import ProductList from "./components/testing/ProductList.jsx";
+// import ProductList from "./components/testing/ProductList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +65,14 @@ const router = createBrowserRouter([
 
       // here starts for the customer
 
+      {
+        path: "/productList",
+        element: (
+          <AuthLayout requiredRole="customer" authentication={true}>
+            <ProductList />
+          </AuthLayout>
+        ),
+      },
       {
         path: "/Cart",
         element: (
