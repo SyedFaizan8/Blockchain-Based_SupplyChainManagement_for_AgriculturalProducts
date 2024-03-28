@@ -12,10 +12,13 @@ export default function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleClick = (sectionId) => {
-    console.log(authRole, sectionId);
+  const handleClickProduct = (sectionId) => {
     if (authRole === "customer") navigate("/productList");
-    else dispatch(Section(sectionId));
+    else handleClick(sectionId);
+  };
+
+  const handleClick = (sectionId) => {
+    dispatch(Section(sectionId));
   };
 
   return (
@@ -80,13 +83,12 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/"
+                  <button
                     className=" block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700"
-                    onClick={handleClick("Products")}
+                    onClick={() => handleClickProduct("products")}
                   >
                     Products
-                  </Link>
+                  </button>
                 </li>
                 <li>
                   <Link

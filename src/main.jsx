@@ -14,7 +14,7 @@ import {
   Cart,
   Orders,
   Profile,
-  Product,
+  ProductDetails,
   ProductList,
 } from "./components/Customer/index.js";
 import {
@@ -34,7 +34,7 @@ import {
   MidtermVerification,
   NewApplication,
 } from "./components/Authority/index.js";
-import ProductDetails from "./components/testing/ProductDetails.jsx";
+// import ProductDetails from "./components/testing/ProductDetails.jsx";
 // import ProductList from "./components/testing/ProductList.jsx";
 
 const router = createBrowserRouter([

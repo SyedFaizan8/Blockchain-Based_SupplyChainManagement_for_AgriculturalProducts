@@ -22,11 +22,13 @@ const Home = () => {
   };
 
   useEffect(() => {
-    scroller.scrollTo(scroll, {
-      smooth: true,
-      duration: 500,
-    });
-    dispatch(Section(null));
+    if (scroll) {
+      scroller.scrollTo(scroll, {
+        smooth: true,
+        duration: 500,
+      });
+      dispatch(Section(null));
+    }
   }, [scroll]);
 
   return (
@@ -46,6 +48,22 @@ const Home = () => {
                 THIS IS AGROCHAIN
               </div>
             </div>
+          </div>
+        </Element>
+
+        {/* products list */}
+
+        <Element name="products">
+          <div className="border-4 border-green-800 p-4 m-1 flex place-content-center">
+            Products list will add here
+          </div>
+        </Element>
+
+        {/* how it works */}
+
+        <Element name="how-it-works">
+          <div className="border-4 border-green-800 p-4 m-1 flex place-content-center">
+            how it workssss
           </div>
         </Element>
 
