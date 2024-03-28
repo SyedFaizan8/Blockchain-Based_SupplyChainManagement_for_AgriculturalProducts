@@ -1,48 +1,85 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Section } from "../../store/scrollSlice.js";
 
 export default function Footer() {
+  const dispatch = useDispatch();
+  const authRole = useSelector((state) => state.auth.role);
+  const authStatus = useSelector((state) => state.auth.status);
+
+  const scrollsubmit = (sectionId) => {
+    dispatch(Section(sectionId));
+  };
+
   return (
     <footer className="bg-[#D8F3DC]  shadow-black shadow-2xl z-20 relative bottom-0">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <Link to="/" className="flex items-center">
-              <img src="/images/logo.png" className="mr-3 h-12" alt="Logo" />
+            <Link to="#" className="flex items-center">
+              <img src="/images/logo.png" className="mr-3 h-48" alt="Logo" />
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
-                Resources
-              </h2>
-              <ul className="text-gray-500 font-medium">
-                <li className="mb-4">
-                  <Link to="/" className="hover:underline">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="hover:underline">
-                    About us
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {(authRole === "customer" || !authStatus) && (
+              <div>
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
+                  Resources
+                </h2>
+                <ul className="text-gray-500 font-medium">
+                  <li className="mb-4">
+                    <Link
+                      to="/"
+                      className="hover:underline"
+                      onClick={() => scrollsubmit("home")}
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li className="mb-4">
+                    <Link
+                      to="/"
+                      className="hover:underline"
+                      onClick={() => scrollsubmit("about-us")}
+                    >
+                      About us
+                    </Link>
+                  </li>
+                  <li className="mb-4">
+                    <Link
+                      to="/"
+                      className="hover:underline"
+                      onClick={() => scrollsubmit("how-it-works")}
+                    >
+                      How it works
+                    </Link>
+                  </li>
+                  <li className="mb-4">
+                    <Link
+                      to="/"
+                      className="hover:underline"
+                      onClick={() => scrollsubmit("contact-us")}
+                    >
+                      Contact us
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">
                 Follow us
               </h2>
               <ul className="text-gray-500 font-medium">
                 <li className="mb-4">
-                  <a
-                    href="https://github.com"
+                  <Link
+                    to="https://github.com/SyedFaizan8/Blockchain-Based_SupplyChainManagement_for_AgriculturalProducts"
                     className="hover:underline"
                     target="_blank"
-                    rel="noreferrer"
                   >
                     Github
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link to="/" className="hover:underline">
@@ -73,7 +110,7 @@ export default function Footer() {
         <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center">
-            ©2023
+            ©2023{"  "}
             <a href="https://google.com/" className="hover:underline">
               Agrochain
             </a>

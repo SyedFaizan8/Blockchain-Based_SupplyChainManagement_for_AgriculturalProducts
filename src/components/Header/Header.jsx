@@ -94,20 +94,21 @@ export default function Header() {
                   <Link
                     to="/"
                     className=" block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700"
-                    onClick={() => handleClick("how-it-works")}
+                    onClick={() => handleClick("about-us")}
                   >
-                    How it works
+                    About us
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/"
                     className=" block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700"
-                    onClick={() => handleClick("about-us")}
+                    onClick={() => handleClick("how-it-works")}
                   >
-                    About us
+                    How it works
                   </Link>
                 </li>
+
                 <li>
                   <Link
                     to="/"

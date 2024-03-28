@@ -9,6 +9,7 @@ const CropRegisteration = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = async (data) => {
     console.log(data);
   };

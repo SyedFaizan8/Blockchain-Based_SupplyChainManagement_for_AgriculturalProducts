@@ -12,13 +12,28 @@ import Footer from "./Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { TiArrowSortedUp } from "react-icons/ti";
 import { Section } from "../store/scrollSlice.js";
+import { products } from "./products.js";
+import { Link } from "react-router-dom";
+import { FaRupeeSign } from "react-icons/fa";
+import Button from "./Button.jsx";
+import Input from "./Input.jsx";
+import { useForm } from "react-hook-form";
 
 const Home = () => {
   const scroll = useSelector((state) => state.scroll.Section);
   const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const scrollsubmit = () => {
     dispatch(Section("home"));
+  };
+
+  const onSubmit = async (data) => {
+    console.log(data);
   };
 
   useEffect(() => {
@@ -26,6 +41,7 @@ const Home = () => {
       scroller.scrollTo(scroll, {
         smooth: true,
         duration: 500,
+        offset: -70,
       });
       dispatch(Section(null));
     }
@@ -54,24 +70,44 @@ const Home = () => {
         {/* products list */}
 
         <Element name="products">
-          <div className="border-4 border-green-800 p-4 m-1 flex place-content-center">
-            Products list will add here
+          <div className="flex flex-col mx-8 gap-4">
+            <div className="text-4xl font-bold">PRODUCTS</div>
+            <div className="columns-4 gap-5 mb-5">
+              {products.slice(0, 8).map((product) => (
+                <div
+                  key={product.id}
+                  className="bg-white break-inside-avoid h-fit hover:shadow-xl hover:shadow-green-400 flex flex-col border-2 border-black rounded-3xl my-4"
+                >
+                  <Link to={`/productDetails/${product.id}`}>
+                    <div className="h-1/2 w-full overflow-hidden">
+                      <img
+                        src="images/feature.png"
+                        alt="image"
+                        className="bg-cover hover:scale-125 transition duration-500"
+                      />
+                    </div>
+
+                    <div className=" h-fit w-full flex flex-col m-2">
+                      <div className="font-bold p-2">{product.name}</div>
+                      <div className="p-2"> {product.description}</div>
+                      <div className="p-2">{product.quantity}</div>
+                      <div className="p-2 flex items-center flex-row">
+                        <FaRupeeSign className="text-sm" />
+                        <div className="text-lg"> {product.price}</div>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </Element>
 
-        {/* how it works */}
-
-        <Element name="how-it-works">
-          <div className="border-4 border-green-800 p-4 m-1 flex place-content-center">
-            how it workssss
-          </div>
-        </Element>
-
-        {/* this is the about section */}
+        {/* About Us*/}
         <Element name="about-us">
           <div className="flex flex-row relative h-[500px] mb-6">
             <div className="flex flex-col justify-center px-10 gap-y-10">
-              <div className="font-bold text-4xl leading-10">About us</div>
+              <div className="font-bold text-4xl leading-10">ABOUT US</div>
 
               <div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint
@@ -102,22 +138,22 @@ const Home = () => {
           </div>
         </Element>
 
-        {/* Why us starts here */}
+        {/* how it works */}
 
-        <div>
-          <div className="overflow-x-hidden">
-            <div className="p-5 bg-[#52B788] grid place-items-center font-bold text-white text-6xl">
-              Why choose us
+        <Element name="how-it-works">
+          <div className="overflow-x-hidden bg-[#D8F3DC]">
+            <div className="py-8 bg-[#52B788] grid  place-items-center font-bold text-white text-6xl">
+              HOW IT WORKS
             </div>
-            <div className="grid grid-cols-3 grid-rows-2 w-screen place-items-center h-96">
+            <div className="grid grid-cols-3 grid-rows-2 w-screen place-items-center">
               <div className="bg-[#52B788] w-full h-full grid place-items-center">
                 <div className="flex gap-2">
-                  <MdAgriculture className="text-5xl text-white bg-orange-500 rounded-full p-2" />{" "}
+                  <MdAgriculture className="text-5xl text-white bg-orange-500 rounded-full p-2" />
                   <div className="flex justify-center items-center text-white font-bold text-2xl">
                     Modern Farming
                   </div>
                 </div>
-                <div className="px-6 pb-6 ">
+                <div className="px-6 pb-6">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Perferendis quasi ad ratione quisquam. Praesentium enim quis
                   placeat aliquam in ratione, incidunt consequuntur esse. Alias,
@@ -129,7 +165,6 @@ const Home = () => {
                 suscipit corporis eveniet architecto magnam sit ab in
                 consequatur adipisci quod.
               </div>
-
               <div className="bg-[#52B788] w-full h-full grid place-items-center">
                 <div className="flex flex-row gap-2">
                   <IoIosCall className="text-5xl text-white bg-orange-500 rounded-full p-2" />{" "}
@@ -137,7 +172,7 @@ const Home = () => {
                     24/7 Support
                   </div>
                 </div>
-                <div className="px-6 pb-6 ">
+                <div className="px-6 pb-6">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Perferendis quasi ad ratione quisquam. Praesentium enim quis
                   placeat aliquam in ratione, incidunt consequuntur esse. Alias,
@@ -168,7 +203,7 @@ const Home = () => {
               </div>
               <div className="bg-[#52B788] w-full h-full grid place-items-center">
                 <div className="flex flex-row gap-2">
-                  <PiTreeEvergreenFill className="text-5xl text-white bg-orange-500 rounded-full p-2" />{" "}
+                  <PiTreeEvergreenFill className="text-5xl text-white bg-orange-500 rounded-full p-2" />
                   <div className="flex justify-center items-center text-white font-bold text-2xl">
                     Green
                   </div>
@@ -182,47 +217,72 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="h-[2px] w-full bg-[#52B788]"></div>
+        </Element>
 
         {/* Contact us */}
         <Element name="contact-us">
-          <div className="flex justify-center items-center flex-col  bg-[#D8F3DC] w-full py-6">
-            <div className="text-xl text-[#1B4332] font-bold m-2">
-              Contact us
-            </div>
+          <div className="flex justify-center items-center flex-col  bg-[#D8F3DC] w-full py-10">
+            <div className="text-4xl text-black font-bold m-2">CONTACT US</div>
             <div className="flex justify-center items-center flex-col w-4/5 ">
-              <div className="font-bold text-4xl">Please Feel Free To</div>
-              <div className="font-bold text-4xl mb-3">Contact Us</div>
+              <div className="font-bold text-xl mb-5">
+                Please Feel Free To Contact Us
+              </div>
+
               <div className="grid grid-cols-3 h-auto w-full">
                 <div className=" bg-[#52B788] col-span-2 rounded-l-lg">
-                  <form className="flex flex-col justify-center items-center gap-4 m-4 p-2">
-                    <input
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="flex flex-col justify-center items-center gap-4 m-4 p-2"
+                  >
+                    <Input
                       type="text"
                       placeholder="Your Name"
-                      className="w-3/4 p-2 rounded-lg"
+                      id="your_name"
+                      className=" p-2 rounded-lg"
+                      {...register("your_name")}
                     />
-                    <input
+                    {errors.your_name && (
+                      <span className="text-red-500">Pls enter your name</span>
+                    )}
+                    <Input
                       type="text"
                       placeholder="Your Email"
-                      className="w-3/4 p-2 rounded-lg"
+                      id="email"
+                      className=" p-2 rounded-lg"
+                      {...register("email", {
+                        required: true,
+                      })}
                     />
-                    <input
+                    {errors.email && (
+                      <span className="text-red-500">Pls enter your email</span>
+                    )}
+                    <Input
                       type="text"
                       placeholder="Subject"
+                      id="subject"
                       className="w-3/4 p-2 rounded-lg"
+                      {...register("subject")}
                     />
-                    <input
+                    <Input
                       type="text"
                       placeholder="Message"
-                      className="w-3/4 p-2 rounded-lg"
+                      id="message"
+                      className=" p-2 h-32 text-xl rounded-lg"
+                      {...register("message", {
+                        required: true,
+                      })}
                     />
-                    <button
+                    {errors.message && (
+                      <span className="text-red-500">
+                        Pls enter your message
+                      </span>
+                    )}
+                    <Button
                       type="submit"
-                      className=" w-3/4 p-2 rounded-lg bg-orange-500"
+                      className=" w-full p-2 rounded-lg bg-orange-500"
                     >
                       Send Message
-                    </button>
+                    </Button>
                   </form>
                 </div>
                 <div className="flex justify-center items-center flex-col rounded-r-lg bg-[#1B4332] gap-y-3 text-white">
@@ -241,7 +301,7 @@ const Home = () => {
 
                       <div className="flex flex-col my-2">
                         <div>Email us</div>
-                        <div>thus@gnauk.con</div>
+                        <div>thus@gnauk.com</div>
                       </div>
 
                       <div className="flex flex-col my-2">
