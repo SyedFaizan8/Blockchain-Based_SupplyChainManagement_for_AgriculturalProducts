@@ -255,7 +255,6 @@ const Home = () => {
             </div>
           </div>
         </Element>
-        <div className="h-[2px] w-full bg-[#52B788]"></div>
         <Footer />
       </div>
 

@@ -6,4 +6,18 @@ import Login from "./Login";
 import Button from "./Button";
 import AuthLayout from "./AuthLayout";
 import Input from "./Input";
-export { Container, Logo, Signup, Login, Button, AuthLayout, Input, Select };
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+
+export {
+  Container,
+  Logo,
+  Signup,
+  Login,
+  Button,
+  AuthLayout,
+  Input,
+  Select,
+  Header,
+  Footer,
+};

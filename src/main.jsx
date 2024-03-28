@@ -74,6 +74,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/productDetails/:id",
+        element: (
+          <AuthLayout requiredRole="customer" authentication={true}>
+            <ProductDetails />
+          </AuthLayout>
+        ),
+      },
+      {
         path: "/Cart",
         element: (
           <AuthLayout requiredRole="customer" authentication={true}>
@@ -186,14 +194,14 @@ const router = createBrowserRouter([
               </AuthLayout>
             ),
           },
-          {
-            path: "/authority/crop-validation/:id",
-            element: (
-              <AuthLayout requiredRole="authority" authentication={true}>
-                <ProductDetails />
-              </AuthLayout>
-            ),
-          },
+          // {
+          //   path: "/authority/crop-validation/:id",
+          //   element: (
+          //     <AuthLayout requiredRole="authority" authentication={true}>
+          //       <ProductDetails />
+          //     </AuthLayout>
+          //   ),
+          // },
           {
             path: "/authority/midterm-verification",
             element: (
