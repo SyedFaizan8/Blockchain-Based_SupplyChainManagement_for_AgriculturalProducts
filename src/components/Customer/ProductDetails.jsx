@@ -25,10 +25,6 @@ const ProductDetail = () => {
   return (
     <div>
       <Header />
-      {/* <h2>{product.name}</h2>
-      <p>Price: ${product.price}</p>
-      <p>Description: {product.description}</p>
-      <img src={product.imageUrl} alt={product.name} /> */}
 
       <div className="flex place-content-center w-full bg-[#D8F3DC]">
         <div className="grid grid-cols-2 w-5/6">
