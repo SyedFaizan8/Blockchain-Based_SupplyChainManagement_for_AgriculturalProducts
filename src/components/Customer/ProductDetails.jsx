@@ -1,4 +1,3 @@
-// ProductDetail.js
 import React from "react";
 import { useParams } from "react-router-dom";
 import { products } from "../products.js";
@@ -14,7 +13,9 @@ const ProductDetail = () => {
       <>
         <div className="min-h-screen">
           <Header />
-          <div>Product not found</div>
+          <div className="flex place-content-center text-9xl font-bold">
+            Product not found
+          </div>
           <Footer />
         </div>
       </>
