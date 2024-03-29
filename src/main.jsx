@@ -187,7 +187,7 @@ const router = createBrowserRouter([
             path: "/authority/crop-validation",
             element: (
               <AuthLayout requiredRole="authority" authentication={true}>
-                <ProductList />
+                <CropValidation />
               </AuthLayout>
             ),
           },

@@ -4,8 +4,6 @@ import { GrOverview } from "react-icons/gr";
 import { GiArchiveRegister } from "react-icons/gi";
 import { MdOutlineDomainVerification } from "react-icons/md";
 import { GrCertificate } from "react-icons/gr";
-import { VscListOrdered } from "react-icons/vsc";
-import { MdOutlineLocalShipping } from "react-icons/md";
 
 const SideBar = ({ className }) => {
   const location = useLocation();
@@ -16,9 +14,9 @@ const SideBar = ({ className }) => {
     >
       <div className="flex flex-col  text-xl">
         <Link
-          to="/farmer"
+          to="/authority"
           className={`cursor-pointer flex flex-row gap-1 p-3  hover:bg-green-600 transition ${
-            location.pathname === "/farmer" && "bg-green-600"
+            location.pathname === "/authority" && "bg-green-600"
           }`}
         >
           <GrOverview className="mt-1" />
@@ -26,55 +24,35 @@ const SideBar = ({ className }) => {
         </Link>
 
         <Link
-          to="/farmer/crop-registration"
+          to="/authority/crop-validation"
           className={`cursor-pointer flex flex-row gap-1 p-3  hover:bg-green-600 transition ${
-            location.pathname === "/farmer/crop-registration" && "bg-green-600"
+            location.pathname === "/authority/crop-validation" && "bg-green-600"
           }`}
         >
           <GiArchiveRegister className="mt-1" />
-          <span> Crop Registeration</span>
+          <span> Crop Validation</span>
         </Link>
 
         <Link
-          to="/farmer/midterm-verify"
+          to="/authority/midterm-verification"
           className={`cursor-pointer flex flex-row gap-1 p-3  hover:bg-green-600 transition ${
-            location.pathname === "/farmer/midterm-verify" && "bg-green-600"
+            location.pathname === "/authority/midterm-verification" &&
+            "bg-green-600"
           }`}
         >
           <MdOutlineDomainVerification className="mt-1" />
-          <div>Mid Term Verification</div>
+          <div>Midterm Verification</div>
         </Link>
 
         <Link
-          to="/farmer/request-certification"
+          to="/authority/final-certification"
           className={`cursor-pointer flex flex-row gap-1 p-3  hover:bg-green-600 transition ${
-            location.pathname === "/farmer/request-certification" &&
+            location.pathname === "/authority/final-certification" &&
             "bg-green-600"
           }`}
         >
           <GrCertificate className="mt-1" />
           <div>Certification</div>
-        </Link>
-
-        <Link
-          to="/farmer/orders-from"
-          className={`cursor-pointer flex flex-row gap-1 p-3  hover:bg-green-600 transition ${
-            location.pathname === "/farmer/orders-from" && "bg-green-600"
-          }`}
-        >
-          <VscListOrdered className="mt-1" />
-          <div>Orders</div>
-        </Link>
-
-        <Link
-          to="/farmer/pick-up-fromcourier"
-          className={`cursor-pointer flex flex-row gap-1 p-3  hover:bg-green-600 transition ${
-            location.pathname === "/farmer/pick-up-fromcourier" &&
-            "bg-green-600"
-          }`}
-        >
-          <MdOutlineLocalShipping className="mt-1" />
-          <div>Courier Pick ups</div>
         </Link>
       </div>
     </div>
