@@ -5,7 +5,6 @@ import "./index.css";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-// import Home from "./pages/Home.jsx";
 import Home from "../src/components/Home.jsx";
 import { AuthLayout } from "./components/index.js";
 import Login from "./components/Login.jsx";
@@ -34,8 +33,6 @@ import {
   MidtermVerification,
   NewApplication,
 } from "./components/Authority/index.js";
-// import ProductDetails from "./components/testing/ProductDetails.jsx";
-// import ProductList from "./components/testing/ProductList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -194,14 +191,6 @@ const router = createBrowserRouter([
               </AuthLayout>
             ),
           },
-          // {
-          //   path: "/authority/crop-validation/:id",
-          //   element: (
-          //     <AuthLayout requiredRole="authority" authentication={true}>
-          //       <ProductDetails />
-          //     </AuthLayout>
-          //   ),
-          // },
           {
             path: "/authority/midterm-verification",
             element: (
