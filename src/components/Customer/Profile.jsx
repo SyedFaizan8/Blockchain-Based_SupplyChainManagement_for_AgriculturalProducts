@@ -14,19 +14,20 @@ const Profile = () => {
   return (
     <>
       <Header />
-      <main>
+      <div className="h-80 overflow-y-hidden z-10 relative shadow-sm shadow-black">
         <img
-          src="/images/Bg.jpg"
-          className="w-screen h-screen blur-lg opacity-60 fixed z-0"
-          alt=""
+          src="images/Products.jpg"
+          alt="BG"
+          className="z-10 absolute blur-sm"
         />
-
-        <div className=" z-10 relative overflow-hidden">
+        <div className="absolute z-30 font-bold text-9xl flex w-full h-full justify-center items-center text-white -mt-8">
+          Profile
+        </div>
+      </div>
+      <main>
+        <div className=" z-10 relative overflow-hidden font-bold pt-6 bg-[#D8F3DC]">
           <div className="flex justify-center py-5  px-12 items-center w-screen">
             <div className="w-full">
-              <div className="flex justify-center items-center text-xl">
-                <div>Profile</div>
-              </div>
               <div>
                 <form onSubmit={handleSubmit(update)}>
                   <div className="grid w-full items-center gap-4">
@@ -50,7 +51,7 @@ const Profile = () => {
                         })}
                       />
                     </div>
-                    <div className="flex justify-center items-center text-xl">
+                    <div className="flex justify-center items-center mt-8 text-4xl">
                       <div>Address Details</div>
                     </div>
 

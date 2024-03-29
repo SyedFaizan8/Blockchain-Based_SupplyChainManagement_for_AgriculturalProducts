@@ -9,7 +9,18 @@ const ProductList = () => {
     <>
       <div className="bg-[#D8F3DC]">
         <Header />
-        <div className="columns-4 gap-5 m-5">
+
+        <div className="h-96 overflow-y-hidden z-10 relative shadow-lg shadow-black">
+          <img
+            src="images/Products.jpg"
+            alt="BG"
+            className="z-10 absolute blur-sm"
+          />
+          <div className="absolute z-30 font-bold text-9xl flex w-full h-full justify-center items-center text-white -mt-8">
+            Products
+          </div>
+        </div>
+        <div className="columns-4 gap-5 p-6 -mt-24 z-20 relative">
           {/* here starts the products */}
           {products.map((product) => (
             <div
