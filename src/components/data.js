@@ -1,4 +1,4 @@
-// for product details
+// for product details-----------------------------------------------------------
 
 export const products = [
   {
@@ -138,7 +138,7 @@ export const products = [
   },
 ];
 
-//for timeline of the products
+//for timeline of the products-----------------------------------------------------
 
 export const timeline = [
   {
