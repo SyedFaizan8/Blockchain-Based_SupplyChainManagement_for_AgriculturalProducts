@@ -1,12 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../products.js";
+import { products } from "../data.js";
 import { Header, Footer, Button } from "../index.js";
 import { FaRupeeSign } from "react-icons/fa";
+import Timeline from "./Timeline.jsx";
 
 const ProductDetail = () => {
-  const { id } = useParams(); // Extracting the product id from URL params
-  const product = products.find((p) => p.id === parseInt(id)); // Finding the product by id
+  const { id } = useParams();
+  const product = products.find((p) => p.id === parseInt(id));
+  const productId = product.id;
 
   if (!product) {
     return (
@@ -58,7 +60,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-
+      <Timeline id={productId} />
       <Footer />
     </div>
   );

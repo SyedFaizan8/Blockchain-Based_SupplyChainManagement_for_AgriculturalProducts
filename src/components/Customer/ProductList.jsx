@@ -1,5 +1,5 @@
 import React from "react";
-import { products } from "../products.js";
+import { products } from "../data.js";
 import { Link } from "react-router-dom";
 import { FaRupeeSign } from "react-icons/fa";
 import { Header, Footer } from "../index.js";
