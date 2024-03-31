@@ -1,10 +1,7 @@
 import React from "react";
-import Button from "../Button.jsx";
-import { useNavigate } from "react-router-dom";
+import { products } from "../data.js";
 
 const FarmerHome = () => {
-  const navigate = useNavigate();
-
   return (
     <>
       <img
@@ -12,8 +9,28 @@ const FarmerHome = () => {
         className="w-screen h-screen blur-lg opacity-60 fixed z-0"
         alt=""
       ></img>
-      <div className="text-gray-900 z-10 min-h-[90vh]  relative  justify-center items-center flex">
-        <div className="text-8xl font-bond">Hello world</div>
+      <div className="flex flex-col place-items-center gap-4 p-8 z-10 relative ">
+        <div className="font-bold text-6xl">Overview</div>
+        <table className=" w-4/5  h-auto rounded-lg overflow-hidden">
+          <thead className=" text-white text-xl bg-black border-green-800 border-2">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody className="text-center font-semibold bg-white">
+            {products.map((product) => (
+              <tr key={product.id} className="border-2 border-green-800">
+                <td>{product.id}</td>
+                <td>{product.name}</td>
+                <td>{product.price}</td>
+                <td>{product.category}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );

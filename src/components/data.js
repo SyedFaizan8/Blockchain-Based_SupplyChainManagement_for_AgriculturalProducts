@@ -149,7 +149,6 @@ export const timeline = [
     midTermApproved: "12/5/2024, 10:47:04 pm",
     finalCertification: "15/5/2024, 10:47:04 pm",
     certificationApproved: "5/6/2024, 10:47:04 pm",
-    productPosting: "30/6/2024, 10:47:04 pm",
   },
   {
     id: 2,
@@ -159,7 +158,6 @@ export const timeline = [
     midTermApproved: "13/5/2024, 10:47:04 pm",
     finalCertification: "16/5/2024, 10:47:04 pm",
     certificationApproved: "6/6/2024, 10:47:04 pm",
-    productPosting: "1/7/2024, 10:47:04 pm",
   },
   {
     id: 3,
@@ -169,7 +167,6 @@ export const timeline = [
     midTermApproved: "14/5/2024, 10:47:04 pm",
     finalCertification: "17/5/2024, 10:47:04 pm",
     certificationApproved: "7/6/2024, 10:47:04 pm",
-    productPosting: "2/7/2024, 10:47:04 pm",
   },
   {
     id: 4,
@@ -179,7 +176,6 @@ export const timeline = [
     midTermApproved: "15/5/2024, 10:47:04 pm",
     finalCertification: "18/5/2024, 10:47:04 pm",
     certificationApproved: "8/6/2024, 10:47:04 pm",
-    productPosting: "3/7/2024, 10:47:04 pm",
   },
   {
     id: 5,
@@ -189,7 +185,6 @@ export const timeline = [
     midTermApproved: "16/5/2024, 10:47:04 pm",
     finalCertification: "19/5/2024, 10:47:04 pm",
     certificationApproved: "9/6/2024, 10:47:04 pm",
-    productPosting: "4/7/2024, 10:47:04 pm",
   },
   {
     id: 6,
@@ -199,7 +194,6 @@ export const timeline = [
     midTermApproved: "17/5/2024, 3:20:00 pm",
     finalCertification: "20/5/2024, 4:30:00 pm",
     certificationApproved: "10/6/2024, 8:00:00 am",
-    productPosting: "5/7/2024, 6:00:00 pm",
   },
   {
     id: 7,
@@ -209,7 +203,6 @@ export const timeline = [
     midTermApproved: "18/5/2024, 2:10:00 pm",
     finalCertification: "21/5/2024, 3:40:00 pm",
     certificationApproved: "11/6/2024, 7:30:00 am",
-    productPosting: "6/7/2024, 5:45:00 pm",
   },
   {
     id: 8,
@@ -219,7 +212,6 @@ export const timeline = [
     midTermApproved: "19/5/2024, 2:45:00 pm",
     finalCertification: "22/5/2024, 4:00:00 pm",
     certificationApproved: "12/6/2024, 8:15:00 am",
-    productPosting: "7/7/2024, 6:15:00 pm",
   },
   {
     id: 9,
@@ -229,7 +221,6 @@ export const timeline = [
     midTermApproved: "20/5/2024, 1:20:00 pm",
     finalCertification: "23/5/2024, 2:50:00 pm",
     certificationApproved: "13/6/2024, 6:45:00 am",
-    productPosting: "8/7/2024, 4:30:00 pm",
   },
   {
     id: 10,
@@ -239,7 +230,6 @@ export const timeline = [
     midTermApproved: "21/5/2024, 2:00:00 pm",
     finalCertification: "24/5/2024, 3:15:00 pm",
     certificationApproved: "14/6/2024, 7:00:00 am",
-    productPosting: "9/7/2024, 5:45:00 pm",
   },
   {
     id: 11,
@@ -249,7 +239,6 @@ export const timeline = [
     midTermApproved: "22/5/2024, 3:10:00 pm",
     finalCertification: "25/5/2024, 4:20:00 pm",
     certificationApproved: "15/6/2024, 8:30:00 am",
-    productPosting: "10/7/2024, 7:00:00 pm",
   },
   {
     id: 12,
@@ -259,7 +248,6 @@ export const timeline = [
     midTermApproved: "23/5/2024, 1:30:00 pm",
     finalCertification: "26/5/2024, 2:40:00 pm",
     certificationApproved: "16/6/2024, 7:15:00 am",
-    productPosting: "11/7/2024, 6:30:00 pm",
   },
   {
     id: 13,
@@ -269,7 +257,6 @@ export const timeline = [
     midTermApproved: "24/5/2024, 2:20:00 pm",
     finalCertification: "27/5/2024, 3:30:00 pm",
     certificationApproved: "17/6/2024, 8:45:00 am",
-    productPosting: "12/7/2024, 5:15:00 pm",
   },
   {
     id: 14,
@@ -279,7 +266,6 @@ export const timeline = [
     midTermApproved: "25/5/2024, 1:40:00 pm",
     finalCertification: "28/5/2024, 2:50:00 pm",
     certificationApproved: "18/6/2024, 7:30:00 am",
-    productPosting: "13/7/2024, 4:45:00 pm",
   },
   {
     id: 15,
@@ -289,7 +275,6 @@ export const timeline = [
     midTermApproved: "26/5/2024, 2:10:00 pm",
     finalCertification: "29/5/2024, 3:20:00 pm",
     certificationApproved: "19/6/2024, 8:00:00 am",
-    productPosting: "14/7/2024, 6:45:00 pm",
   },
   {
     id: 16,
@@ -299,7 +284,6 @@ export const timeline = [
     midTermApproved: "27/5/2024, 3:30:00 pm",
     finalCertification: "30/5/2024, 4:40:00 pm",
     certificationApproved: "20/6/2024, 7:15:00 am",
-    productPosting: "15/7/2024, 5:30:00 pm",
   },
   {
     id: 17,
@@ -309,7 +293,6 @@ export const timeline = [
     midTermApproved: "28/5/2024, 2:20:00 pm",
     finalCertification: "1/6/2024, 3:35:00 pm",
     certificationApproved: "21/6/2024, 8:30:00 am",
-    productPosting: "16/7/2024, 7:00:00 pm",
   },
   {
     id: 18,
@@ -319,7 +302,6 @@ export const timeline = [
     midTermApproved: "29/5/2024, 1:10:00 pm",
     finalCertification: "2/6/2024, 2:25:00 pm",
     certificationApproved: "22/6/2024, 7:45:00 am",
-    productPosting: "17/7/2024, 5:45:00 pm",
   },
   {
     id: 19,
@@ -329,7 +311,6 @@ export const timeline = [
     midTermApproved: "30/5/2024, 3:20:00 pm",
     finalCertification: "3/6/2024, 4:30:00 pm",
     certificationApproved: "23/6/2024, 8:15:00 am",
-    productPosting: "18/7/2024, 6:30:00 pm",
   },
   {
     id: 20,
@@ -339,7 +320,6 @@ export const timeline = [
     midTermApproved: "31/5/2024, 2:10:00 pm",
     finalCertification: "4/6/2024, 3:20:00 pm",
     certificationApproved: "24/6/2024, 7:00:00 am",
-    productPosting: "19/7/2024, 5:45:00 pm",
   },
   {
     id: 21,
@@ -349,6 +329,5 @@ export const timeline = [
     midTermApproved: "1/6/2024, 3:30:00 pm",
     finalCertification: "5/6/2024, 4:40:00 pm",
     certificationApproved: "25/6/2024, 7:15:00 am",
-    productPosting: "20/7/2024, 5:30:00 pm",
   },
 ];

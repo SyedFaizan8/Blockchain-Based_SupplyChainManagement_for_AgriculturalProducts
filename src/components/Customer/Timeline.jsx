@@ -106,7 +106,7 @@ const Timeline = ({ id }) => {
             {/* <!-- Stack 6 --> */}
             <div class="col-span-4 w-full h-full"></div>
             <div class="relative col-span-1 w-full h-full flex justify-center items-center">
-              <div class="h-full w-1 bg-indigo-300"></div>
+              <div class="h-1/2 self-start w-1 bg-indigo-300"></div>
               <div class="w-1/2 right-0  h-1 bg-indigo-300 absolute"></div>
               <div class="absolute w-6 h-6 rounded-full bg-indigo-400 z-10 text-white text-center">
                 6
@@ -122,24 +122,6 @@ const Timeline = ({ id }) => {
                 </p>
               </div>
             </div>
-
-            {/* <!-- Stack 7 --> */}
-            <div class="col-span-4 w-full h-full ">
-              <div class="w-full h-full bg-indigo-400 rounded-md p-2 md:pl-4">
-                <h1 class="text-white text-xl font-medium py-2">
-                  Product listed online on
-                </h1>
-                <p class="text-gray-100 text-md">{product.productPosting}</p>
-              </div>
-            </div>
-            <div class="relative col-span-1 w-full h-full flex justify-center items-center">
-              <div class="h-1/2 self-start w-1 bg-indigo-300 "></div>
-              <div class="w-1/2 left-0  h-1 bg-indigo-300 absolute"></div>
-              <div class="absolute w-6 h-6 rounded-full bg-indigo-400 z-10 text-white text-center">
-                7
-              </div>
-            </div>
-            <div class="col-span-4 w-full h-full"></div>
           </div>
         </div>
       </div>
