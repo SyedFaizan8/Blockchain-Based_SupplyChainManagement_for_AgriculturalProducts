@@ -25,7 +25,7 @@ export default function Header() {
     <header className="shadow sticky z-50 top-0">
       <nav className="bg-[#D8F3DC] border-gray-200 px-4 lg:px-6 py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <Link to="/" className="flex items-center">
+          <Link to="#" className="flex items-center">
             <img src="/images/logo.png" className="mr-3 h-12" alt="Logo" />
           </Link>
 

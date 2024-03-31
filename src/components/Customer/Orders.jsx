@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
+import { products } from "../data.js";
 
 const Orders = () => {
   return (
@@ -16,10 +17,27 @@ const Orders = () => {
           Orders
         </div>
       </div>
-      <div className="h-full w-full">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-        id corrupti impedit, quidem possimus fugit, soluta, eius ullam error quo
-        saepe aliquam quas eligendi voluptates?
+      <div className="flex flex-col place-items-center p-8 z-10 relative ">
+        <table className=" w-full mx-2  h-auto rounded-lg overflow-hidden">
+          <thead className=" text-white text-xl bg-black border-green-800 border-2">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody className="text-center font-semibold bg-white">
+            {products.map((product) => (
+              <tr key={product.id} className="border-2 border-green-800">
+                <td>{product.id}</td>
+                <td>{product.name}</td>
+                <td>{product.price}</td>
+                <td>{product.category}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
       <Footer />
     </>

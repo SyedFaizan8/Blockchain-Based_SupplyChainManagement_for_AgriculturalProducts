@@ -11,7 +11,7 @@ const FarmerHome = () => {
       ></img>
       <div className="flex flex-col place-items-center gap-4 p-8 z-10 relative ">
         <div className="font-bold text-6xl">Overview</div>
-        <table className=" w-4/5  h-auto rounded-lg overflow-hidden">
+        <table className="w-full mx-2  h-auto rounded-lg overflow-hidden">
           <thead className=" text-white text-xl bg-black border-green-800 border-2">
             <tr>
               <th>ID</th>
