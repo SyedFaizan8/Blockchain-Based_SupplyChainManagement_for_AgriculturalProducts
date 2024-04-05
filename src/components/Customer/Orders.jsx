@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
 import { products } from "../data.js";
+import { useNavigate } from "react-router-dom";
 
 const Orders = () => {
+  const [data, setData] = useState();
+  const navigate = useNavigate();
+
+  const konsa = (data) => {
+    setData(data);
+    console.log(data);
+    navigate(`/OrderDetails/${data}`);
+  };
+
   return (
     <>
       <Header />
@@ -29,7 +39,11 @@ const Orders = () => {
           </thead>
           <tbody className="text-center font-semibold bg-white">
             {products.map((product) => (
-              <tr key={product.id} className="border-2 border-green-800">
+              <tr
+                onClick={() => konsa(product.id)}
+                key={product.id}
+                className="border-2 border-green-800 hover:bg-slate-400"
+              >
                 <td>{product.id}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>

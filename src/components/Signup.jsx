@@ -44,7 +44,8 @@ function Signup() {
       const userData = { role, name, email, password };
       dispatch(login({ userData, role }));
       if (role === "customer") navigate("/");
-      else navigate(`/${role}`);
+      else if (role === "authority") navigate("/authority/crop-validation");
+      else navigate("/farmer");
     } catch (error) {
       setError(error.message);
     }

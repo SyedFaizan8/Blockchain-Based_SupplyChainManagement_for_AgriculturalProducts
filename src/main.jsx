@@ -15,6 +15,7 @@ import {
   Profile,
   ProductDetails,
   ProductList,
+  OrderDetails,
 } from "./components/Customer/index.js";
 import {
   Farmer,
@@ -26,12 +27,9 @@ import {
   RequestCertification,
 } from "./components/Farmer/index.js";
 import {
-  Authority,
-  AuthorityHome,
   CropValidation,
   FinalCertification,
   MidtermVerification,
-  NewApplication,
 } from "./components/Authority/index.js";
 
 const router = createBrowserRouter([
@@ -91,6 +89,14 @@ const router = createBrowserRouter([
         element: (
           <AuthLayout requiredRole="customer" authentication={true}>
             <Orders />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/OrderDetails/:id",
+        element: (
+          <AuthLayout requiredRole="customer" authentication={true}>
+            <OrderDetails />
           </AuthLayout>
         ),
       },
@@ -168,46 +174,28 @@ const router = createBrowserRouter([
       // here starts authority routes
 
       {
-        path: "/authority",
+        path: "/authority/crop-validation",
         element: (
           <AuthLayout requiredRole="authority" authentication={true}>
-            <Authority />
+            <CropValidation />
           </AuthLayout>
         ),
-        children: [
-          {
-            path: "/authority",
-            element: (
-              <AuthLayout requiredRole="authority" authentication={true}>
-                <AuthorityHome />
-              </AuthLayout>
-            ),
-          },
-          {
-            path: "/authority/crop-validation",
-            element: (
-              <AuthLayout requiredRole="authority" authentication={true}>
-                <CropValidation />
-              </AuthLayout>
-            ),
-          },
-          {
-            path: "/authority/midterm-verification",
-            element: (
-              <AuthLayout requiredRole="authority" authentication={true}>
-                <MidtermVerification />
-              </AuthLayout>
-            ),
-          },
-          {
-            path: "/authority/final-certification",
-            element: (
-              <AuthLayout requiredRole="authority" authentication={true}>
-                <FinalCertification />
-              </AuthLayout>
-            ),
-          },
-        ],
+      },
+      {
+        path: "/authority/midterm-verification",
+        element: (
+          <AuthLayout requiredRole="authority" authentication={true}>
+            <MidtermVerification />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/authority/final-certification",
+        element: (
+          <AuthLayout requiredRole="authority" authentication={true}>
+            <FinalCertification />
+          </AuthLayout>
+        ),
       },
     ],
   },

@@ -14,16 +14,6 @@ const SideBar = ({ className }) => {
     >
       <div className="flex flex-col  text-xl">
         <Link
-          to="/authority"
-          className={`cursor-pointer flex flex-row gap-1 p-3  hover:bg-green-600 transition ${
-            location.pathname === "/authority" && "bg-green-600"
-          }`}
-        >
-          <GrOverview className="mt-1" />
-          <span>Overview</span>
-        </Link>
-
-        <Link
           to="/authority/crop-validation"
           className={`cursor-pointer flex flex-row gap-1 p-3  hover:bg-green-600 transition ${
             location.pathname === "/authority/crop-validation" && "bg-green-600"
