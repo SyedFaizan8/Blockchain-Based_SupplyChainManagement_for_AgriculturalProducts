@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { products } from "../data.js";
+import { cropRegistration } from "../data.js";
 import { Header, Footer } from "../index.js";
 import { SideBar } from "./index.js";
 
@@ -29,25 +29,31 @@ const CropValidation = () => {
           <div className="flex flex-col place-items-center gap-4 p-8 z-10 relative ">
             <div className="font-bold text-6xl">Crop Validation</div>
             <table className="w-full mx-2 h-auto rounded-lg overflow-hidden">
-              <thead className="text-white text-xl bg-black border-green-800 border-2">
+              <thead className="text-white text-md bg-black border-green-800 border-2">
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Category</th>
+                  <th>Farmer Name</th>
+                  <th>Crop Name</th>
+                  <th>Address</th>
+                  <th>Cultivation Area</th>
+                  <th>Time Till Harvest</th>
+                  <th>Expected Yield</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody className="text-center font-semibold bg-white">
-                {products.map((product) => (
+                {cropRegistration.map((product) => (
                   <tr
                     key={product.id}
                     className="border-2 border-green-800 hover:bg-slate-400"
                   >
                     <td>{product.id}</td>
-                    <td>{product.name}</td>
-                    <td>{product.price}</td>
-                    <td>{product.category}</td>
+                    <td>{product.farmerName}</td>
+                    <td>{product.CropName}</td>
+                    <td>{product.landAddress}</td>
+                    <td>{product.AreaOfCultivation}</td>
+                    <td>{product.TimeRequiredTillHarvest}</td>
+                    <td>{product.ExpectedYield}</td>
                     <td>
                       <button
                         onClick={() => handleApproval(product.id)}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { products } from "../data.js";
+import { Certification } from "../data.js";
 import { Header, Footer } from "../index.js";
 import { SideBar } from "./index.js";
 
@@ -32,22 +32,26 @@ const FinalCertification = () => {
               <thead className="text-white text-xl bg-black border-green-800 border-2">
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Category</th>
+                  <th>Farmer Name</th>
+                  <th>Crop Name</th>
+                  <th>Crop Quantity</th>
+                  <th>Crop Quality</th>
+                  <th>Desired Price</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody className="text-center font-semibold bg-white">
-                {products.map((product) => (
+                {Certification.map((product) => (
                   <tr
                     key={product.id}
                     className="border-2 border-green-800 hover:bg-slate-400"
                   >
                     <td>{product.id}</td>
-                    <td>{product.name}</td>
-                    <td>{product.price}</td>
-                    <td>{product.category}</td>
+                    <td>{product.FarmerName}</td>
+                    <td>{product.CropName}</td>
+                    <td>{product.CropQuantity}</td>
+                    <td>{product.CropQuality}</td>
+                    <td>{product.DesiredPrice}</td>
                     <td>
                       <button
                         onClick={() => handleApproval(product.id)}

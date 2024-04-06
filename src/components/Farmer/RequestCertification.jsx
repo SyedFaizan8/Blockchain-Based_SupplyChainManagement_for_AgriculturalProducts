@@ -28,6 +28,24 @@ const RequestCertification = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
+                    <label htmlFor="farmerName" className="font-bold">
+                      Farmer Name
+                    </label>
+                    <Input
+                      className="bg-green-100"
+                      id="farmerName"
+                      placeholder="Farmer Name"
+                      {...register("farmerName", {
+                        required: true,
+                      })}
+                    />
+                    {errors.desiredprice && (
+                      <span className="text-red-500">
+                        Pls enter all details
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex flex-col space-y-1.5">
                     <label htmlFor="cropname" className="font-bold">
                       Crop Name
                     </label>

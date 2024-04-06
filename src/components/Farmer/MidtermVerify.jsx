@@ -84,25 +84,6 @@ const MidtermVerify = () => {
                     )}
                   </div>
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="cultivation" className="font-bold">
-                      Progress
-                    </label>
-                    <Input
-                      className="bg-green-100"
-                      id="progress"
-                      placeholder="Enter Progress"
-                      {...register("progress", {
-                        required: true,
-                      })}
-                    />
-                    {errors.progress && (
-                      <span className="text-red-500">
-                        Pls enter all details
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="flex flex-col space-y-1.5">
                     <label htmlFor="timeforharvest" className="font-bold">
                       Months remaining till harvest
                     </label>

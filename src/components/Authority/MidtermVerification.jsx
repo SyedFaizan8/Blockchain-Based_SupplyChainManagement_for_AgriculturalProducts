@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { products } from "../data.js";
+import { Midtermverification } from "../data.js";
 import { Header, Footer } from "../index.js";
 import { SideBar } from "./index.js";
 
@@ -32,22 +32,24 @@ const MidtermVerification = () => {
               <thead className="text-white text-xl bg-black border-green-800 border-2">
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Category</th>
+                  <th>Farmer Name</th>
+                  <th>Crop Name</th>
+                  <th>Area</th>
+                  <th>Time Till Harvest</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody className="text-center font-semibold bg-white">
-                {products.map((product) => (
+                {Midtermverification.map((product) => (
                   <tr
                     key={product.id}
                     className="border-2 border-green-800 hover:bg-slate-400"
                   >
                     <td>{product.id}</td>
-                    <td>{product.name}</td>
-                    <td>{product.price}</td>
-                    <td>{product.category}</td>
+                    <td>{product.FarmerName}</td>
+                    <td>{product.CropName}</td>
+                    <td>{product.Area}</td>
+                    <td>{product.timeRemainingHarvest}</td>
                     <td>
                       <button
                         onClick={() => handleApproval(product.id)}
