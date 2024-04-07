@@ -36,14 +36,14 @@ const MidtermVerify = () => {
                     <Input
                       className="bg-green-100"
                       id="farmer_name"
-                      placeholder="Enter crop name"
+                      placeholder="Enter farmer's name"
                       {...register("farmer_name", {
                         required: true,
                       })}
                     />
                     {errors.farmer_name && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the farmer's name
                       </span>
                     )}
                   </div>
@@ -61,7 +61,7 @@ const MidtermVerify = () => {
                     />
                     {errors.cropname && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the crop name
                       </span>
                     )}
                   </div>
@@ -72,32 +72,33 @@ const MidtermVerify = () => {
                     <Input
                       className="bg-green-100"
                       id="area"
-                      placeholder="Area in acre"
+                      placeholder="Enter area in acres"
                       {...register("area", {
                         required: true,
                       })}
                     />
                     {errors.area && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the area in acres
                       </span>
                     )}
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     <label htmlFor="timeforharvest" className="font-bold">
-                      Months remaining till harvest
+                      Expected month of harvest
                     </label>
                     <Input
+                      type="month"
                       className="bg-green-100"
-                      id="timeremaing"
+                      id="timeforharvest"
                       placeholder="Enter here"
-                      {...register("timeremaing", {
+                      {...register("timeforharvest", {
                         required: true,
                       })}
                     />
-                    {errors.timeremaing && (
+                    {errors.timeforharvest && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the expected month
                       </span>
                     )}
                   </div>

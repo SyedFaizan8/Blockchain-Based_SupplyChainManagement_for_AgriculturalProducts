@@ -37,14 +37,14 @@ const CropRegisteration = () => {
                     <Input
                       className="bg-green-100"
                       id="farmer_name"
-                      placeholder="Enter crop name"
+                      placeholder="Enter farmer's name"
                       {...register("farmer_name", {
                         required: true,
                       })}
                     />
                     {errors.farmer_name && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the farmer's name
                       </span>
                     )}
                   </div>
@@ -62,25 +62,25 @@ const CropRegisteration = () => {
                     />
                     {errors.cropname && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the crop name
                       </span>
                     )}
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     <label htmlFor="area" className="font-bold">
-                      Plot/Land Address
+                      Address
                     </label>
                     <Input
                       className="bg-green-100"
                       id="area"
-                      placeholder="Enter Address"
+                      placeholder="Enter your address"
                       {...register("area", {
                         required: true,
                       })}
                     />
                     {errors.area && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please provide your address
                       </span>
                     )}
                   </div>
@@ -91,23 +91,24 @@ const CropRegisteration = () => {
                     <Input
                       className="bg-green-100"
                       id="cultivation"
-                      placeholder="Enter no of acres of cultivation area"
+                      placeholder="Enter area in acres"
                       {...register("cultivation", {
                         required: true,
                       })}
                     />
                     {errors.cultivation && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please specify the area of cultivation in acres
                       </span>
                     )}
                   </div>
 
                   <div className="flex flex-col space-y-1.5">
                     <label htmlFor="timeforharvest" className="font-bold">
-                      Time required till harvest
+                      Expected month of harvest
                     </label>
                     <Input
+                      type="month"
                       className="bg-green-100"
                       id="timeforharvest"
                       placeholder="Enter here"
@@ -117,26 +118,27 @@ const CropRegisteration = () => {
                     />
                     {errors.timeforharvest && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the expected month
                       </span>
                     )}
                   </div>
 
                   <div className="flex flex-col space-y-1.5">
                     <label htmlFor="yieldperacre" className="font-bold">
-                      Expected yield per Acre
+                      Expected yield per acre
                     </label>
                     <Input
                       className="bg-green-100"
                       id="yieldperacre"
-                      placeholder="Enter here"
+                      placeholder="Please enter the expected yield per acre in kilograms"
                       {...register("yieldperacre", {
                         required: true,
                       })}
                     />
                     {errors.yieldperacre && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please provide the expected yield per acre in kilograms
+                        to proceed
                       </span>
                     )}
                   </div>

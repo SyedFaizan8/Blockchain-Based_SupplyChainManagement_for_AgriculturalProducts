@@ -1,5 +1,4 @@
-import Button from "../Button.jsx";
-import Input from "../Input.jsx";
+import { Input, Button, Select } from "../index.js";
 import { useForm } from "react-hook-form";
 
 const RequestCertification = () => {
@@ -28,20 +27,20 @@ const RequestCertification = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
-                    <label htmlFor="farmerName" className="font-bold">
+                    <label htmlFor="farmer_name" className="font-bold">
                       Farmer Name
                     </label>
                     <Input
                       className="bg-green-100"
-                      id="farmerName"
-                      placeholder="Farmer Name"
-                      {...register("farmerName", {
+                      id="farmer_name"
+                      placeholder="Enter farmer's name"
+                      {...register("farmer_name", {
                         required: true,
                       })}
                     />
-                    {errors.desiredprice && (
+                    {errors.farmer_name && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the farmer's name
                       </span>
                     )}
                   </div>
@@ -59,7 +58,7 @@ const RequestCertification = () => {
                     />
                     {errors.cropname && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the crop name
                       </span>
                     )}
                   </div>
@@ -70,32 +69,34 @@ const RequestCertification = () => {
                     <Input
                       className="bg-green-100"
                       id="cropquantity"
-                      placeholder="Enter crop quantity"
+                      placeholder="Please enter the crop quantity in kilograms"
                       {...register("cropquantity", {
                         required: true,
                       })}
                     />
                     {errors.cropquantity && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please enter the crop quantity in kilograms
                       </span>
                     )}
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     <label htmlFor="cropquality" className="font-bold">
-                      Crop quality
+                      Crop Quality
                     </label>
-                    <Input
-                      className="bg-green-100"
+
+                    <Select
+                      options={["A", "B", "C"]}
+                      label="Quality"
                       id="cropquality"
-                      placeholder=" Enter crop quality"
+                      className="bg-green-100"
                       {...register("cropquality", {
                         required: true,
                       })}
                     />
                     {errors.cropquality && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please choose the crop quality grade
                       </span>
                     )}
                   </div>
@@ -106,14 +107,14 @@ const RequestCertification = () => {
                     <Input
                       className="bg-green-100"
                       id="desiredprice"
-                      placeholder="Desired Price"
+                      placeholder="Please enter the desired price"
                       {...register("desiredprice", {
                         required: true,
                       })}
                     />
                     {errors.desiredprice && (
                       <span className="text-red-500">
-                        Pls enter all details
+                        Please input the desired price
                       </span>
                     )}
                   </div>
