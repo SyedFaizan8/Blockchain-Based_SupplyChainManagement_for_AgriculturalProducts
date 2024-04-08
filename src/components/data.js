@@ -9,6 +9,7 @@ export const products = [
       "This is product A. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     category: "Electronics",
     quantity: 50,
+    image: "images/wheat.jpeg",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export const products = [
       "This is product B. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     category: "Clothing",
     quantity: 30,
+    image: "images/corn.jpeg  ",
   },
   {
     id: 3,
@@ -27,6 +29,7 @@ export const products = [
       "This is product C. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     category: "Home & Kitchen",
     quantity: 20,
+    image: "images/flaxseeds.jpeg   ",
   },
   {
     id: 4,
@@ -36,6 +39,7 @@ export const products = [
       "This is product D. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     category: "Beauty",
     quantity: 40,
+    image: "images/soyabean.jpeg",
   },
   {
     id: 5,
@@ -45,6 +49,7 @@ export const products = [
       "This is product E. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     category: "Books",
     quantity: 60,
+    image: "images/beans.avif  ",
   },
   {
     id: 6,
@@ -54,6 +59,7 @@ export const products = [
       "This is product F. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
     category: "Electronics",
     quantity: 25,
+    image:"images/sunflowerseeds.jpeg    ",
   },
   {
     id: 7,
@@ -63,6 +69,7 @@ export const products = [
       "This is product G. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
     category: "Toys & Games",
     quantity: 70,
+    image:"images/cahsus.jpg",
   },
   {
     id: 8,
@@ -72,6 +79,7 @@ export const products = [
       "This is product H. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.",
     category: "Clothing",
     quantity: 35,
+    image:"images/loading.gif",
   },
   {
     id: 9,

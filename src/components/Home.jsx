@@ -73,7 +73,9 @@ const Home = () => {
         {authRole === "customer" && (
           <Element name="products">
             <div className="flex flex-col mx-8 gap-4">
-              <div className="text-5xl mt-9 mb-5 font-bold flex justify-center ">PRODUCTS</div>
+              <div className="text-5xl mt-9 mb-5 font-bold flex justify-center underline ">
+                PRODUCTS
+              </div>
               <div className="columns-4 gap-5 mb-5">
                 {products.slice(0, 8).map((product) => (
                   <div
@@ -81,21 +83,22 @@ const Home = () => {
                     className="bg-white break-inside-avoid h-fit hover:shadow-xl hover:shadow-green-400 flex flex-col border-2 border-black rounded-3xl my-4"
                   >
                     <Link to={`/productDetails/${product.id}`}>
-                      <div className="h-1/2 w-full overflow-hidden">
+                      <div className="h-1/2 w-full overflow-hidden rounded-3xl">
                         <img
-                          src="images/feature.png"
-                          alt="image"
+                          src={product.image}
+                          alt="Product"
                           className="bg-cover hover:scale-125 transition duration-500"
                         />
                       </div>
 
                       <div className=" h-fit w-full flex flex-col m-2">
                         <div className="font-bold p-2">{product.name}</div>
-                        <div className="p-2"> {product.description}</div>
+                        <div className="p-2"> {product.description}</div>``
                         <div className="p-2">{product.quantity}</div>
                         <div className="p-2 flex items-center flex-row">
                           <FaRupeeSign className="text-sm" />
                           <div className="text-lg"> {product.price}</div>
+                          <div className="">{product.image}</div>
                         </div>
                       </div>
                     </Link>
