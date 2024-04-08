@@ -57,18 +57,21 @@ const Home = () => {
         <Element name="home">
           <div className="relative h-[26rem] ">
             <img
-              src="images/main-bg.jpg"
+              src="images/AA.jpg"
               alt="Banner"
-              className="z-0 w-full absolute "
+              className="z-0 h-full w-screen absolute blur-sm"
             />
-            <div className="absolute z-10  justify-center items-center w-full flex h-3/4">
-              <div className="font-bold text-9xl bg-green-700  text-white  tracking-widest rounded-md">
-                AGRO-CHAIN
+            <div className="absolute  justify-center items-center w-full flex h-3/4">
+              <div className="font-bold text-9xl  text-slate-100   tracking-widest rounded-md blur-none">
+                AGRO CHAIN
               </div>
             </div>
           </div>
         </Element>
-
+        <div class="divide-y-8 divide-zinc-500 mt-1">
+          <div></div>
+          <div></div>
+        </div>
         {/* products list */}
         {authRole === "customer" && (
           <Element name="products">
@@ -108,46 +111,59 @@ const Home = () => {
             </div>
           </Element>
         )}
-
+        <div class="divide-y-4 divide-zinc-500">
+          <div></div>
+          <div></div>
+        </div>
         {/* About Us*/}
         <Element name="about-us">
           <div className="flex flex-row relative h-[500px] mb-6">
             <div className="flex flex-col justify-center px-10 gap-y-10">
-              <div className="font-bold text-4xl leading-10">ABOUT US</div>
+              <div className="font-bold text-5xl leading-10 flex justify-center p-0 underline underline-offset-4 mt-16">
+                ABOUT US
+              </div>
 
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint
-                reprehenderit fuga distinctio cum dicta, culpa asperiores
-                ratione totam nulla itaque incidunt, eius magni ipsam et esse ea
-                expedita nisi adipisci dolor in sequi dolores vero! Consequatur,
-                iure id. Dignissimos a corrupti harum explicabo quam, expedita
-                aut distinctio eos error sint.
+              <div className="text-xl">
+                Blockchain technology holds promise for promoting green
+                initiatives through its capacity to enhance transparency and
+                accountability. By enabling peer-to-peer energy trading,
+                blockchain facilitates the decentralized exchange of renewable
+                energy, empowering individuals to participate in the green
+                economy directly. Additionally, blockchain's transparent
+                tracking of carbon emissions and offsets provides a reliable
+                framework for monitoring and verifying environmental impact
+                reduction efforts, ensuring that businesses and organizations
+                uphold their commitments to sustainability. Furthermore,
+                blockchain's role in transparent supply chain management allows
+                consumers to make informed decisions about
+                environmentally-friendly products, incentivizing businesses to
+                adopt more sustainable practices. Overall, blockchain has the
+                potential to drive significant progress towards a greener and
+                more sustainable future by fostering transparency,
+                accountability, and innovation in various sectors.
               </div>
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint
-                reprehenderit fuga distinctio cum dicta, culpa asperiores
-                ratione totam nulla itaque incidunt, eius magni ipsam et esse ea
-                expedita nisi adipisci dolor in sequi dolores vero! Consequatur,
-                iure id. Dignissimos a corrupti harum explicabo quam, expedita
-                aut distinctio eos error sint.
-              </div>
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint
-                reprehenderit fuga distinctio cum dicta, culpa asperiores
-                ratione totam nulla itaque incidunt, eius magni ipsam et esse ea
-                expedita nisi adipisci dolor in sequi dolores vero! Consequatur,
-                iure id. Dignissimos a corrupti harum explicabo quam, expedita
-                aut distinctio eos error sint.
+
+              <div className="text-xl">
+                Blockchain technology offers a transformative solution for
+                advancing green initiatives by enhancing transparency and
+                accountability in environmental efforts. Through decentralized
+                peer-to-peer energy trading, blockchain enables the efficient
+                exchange of renewable energy, empowering individuals to
+                participate in sustainable energy practices.
               </div>
             </div>
-            <img className="h-full" src="images/about.png" alt="about us" />
+            <img
+              className="p-9 m-9 bg-green-300 rounded-xl border-red-300"
+              src="images/logo.png"
+              alt="about us"
+            />
           </div>
         </Element>
 
         {/* how it works */}
 
         <Element name="how-it-works">
-          <div className="overflow-x-hidden bg-[#D8F3DC]">
+          <div className="overflow-x-hidden bg-[#D8F3DC] mt-16">
             <div className="py-8 bg-[#52B788] grid  place-items-center font-bold text-white text-6xl">
               HOW IT WORKS
             </div>
@@ -224,11 +240,17 @@ const Home = () => {
             </div>
           </div>
         </Element>
+        <div class="divide-y-4 divide-zinc-500 mt-1">
+          <div></div>
+          <div></div>
+        </div>
 
         {/* Contact us */}
         <Element name="contact-us">
           <div className="flex justify-center items-center flex-col  bg-[#D8F3DC] w-full py-10">
-            <div className="text-4xl text-black font-bold m-2">CONTACT US</div>
+            <div className="text-4xl text-black font-bold m-2 bg-orange-300 rounded-lg">
+              CONTACT US
+            </div>
             <div className="flex justify-center items-center flex-col w-4/5 ">
               <div className="font-bold text-xl mb-5">
                 Please Feel Free To Contact Us

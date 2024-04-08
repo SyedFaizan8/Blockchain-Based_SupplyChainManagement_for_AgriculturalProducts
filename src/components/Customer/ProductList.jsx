@@ -30,7 +30,7 @@ const ProductList = () => {
               <Link to={`/productDetails/${product.id}`}>
                 <div className="h-1/2 w-full overflow-hidden">
                   <img
-                    src="images/feature.png"
+                    src={product.img}
                     alt="image"
                     className="bg-cover hover:scale-110 transition"
                   />
@@ -43,6 +43,7 @@ const ProductList = () => {
                   <div className="p-2 flex items-center flex-row">
                     <FaRupeeSign className="text-sm" />
                     <div className="text-lg"> {product.price}</div>
+                    <div className="">{product.image}</div>
                   </div>
                 </div>
               </Link>
