@@ -6,6 +6,7 @@ import { FaRupeeSign } from "react-icons/fa";
 import Timeline from "./Timeline.jsx";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/cartSlice.js";
+// import { Popover PopoverHandler, PopoverContent } from "@material-tailwind/react";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -63,12 +64,14 @@ const ProductDetail = () => {
               <div className="font-medium">{product.quantity} </div>
               <div>items available</div>
             </div>
-            <Button
-              className="hover:bg-blue-400"
-              onClick={() => handleAddToCart(product)}
-            >
-              Add to Cart
-            </Button>
+            
+                <Button
+                  className="hover:bg-blue-400"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Add to Cart
+                </Button>
+              
           </div>
         </div>
       </div>

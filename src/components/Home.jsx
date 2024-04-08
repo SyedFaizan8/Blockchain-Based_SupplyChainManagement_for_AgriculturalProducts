@@ -59,11 +59,11 @@ const Home = () => {
             <img
               src="images/main-bg.jpg"
               alt="Banner"
-              className="z-0 w-full absolute"
+              className="z-0 w-full absolute "
             />
             <div className="absolute z-10  justify-center items-center w-full flex h-3/4">
-              <div className="font-bold text-8xl text-white tracking-widest">
-                THIS IS AGROCHAIN
+              <div className="font-bold text-9xl bg-green-700  text-white  tracking-widest rounded-md">
+                AGRO-CHAIN
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@ const Home = () => {
         {authRole === "customer" && (
           <Element name="products">
             <div className="flex flex-col mx-8 gap-4">
-              <div className="text-4xl font-bold">PRODUCTS</div>
+              <div className="text-5xl mt-9 mb-5 font-bold flex justify-center ">PRODUCTS</div>
               <div className="columns-4 gap-5 mb-5">
                 {products.slice(0, 8).map((product) => (
                   <div
