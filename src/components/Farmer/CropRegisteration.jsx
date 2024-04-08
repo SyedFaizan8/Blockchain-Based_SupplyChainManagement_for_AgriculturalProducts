@@ -25,7 +25,7 @@ const CropRegisteration = () => {
         <div className="flex justify-center py-5  px-12 items-center w-full">
           <div className="w-4/5">
             <div className="flex justify-center items-center text-xl">
-              <div className="font-bold text-4xl">Crop Registeration</div>
+              <div className="font-bold text-4xl m-5">Crop Registeration</div>
             </div>
             <div>
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -53,6 +53,7 @@ const CropRegisteration = () => {
                       Crop Name
                     </label>
                     <Input
+                    type = "name"
                       className="bg-green-100"
                       id="cropname"
                       placeholder="Enter crop name"
@@ -71,6 +72,7 @@ const CropRegisteration = () => {
                       Address
                     </label>
                     <Input
+                    type = "address"
                       className="bg-green-100"
                       id="area"
                       placeholder="Enter your address"
@@ -89,6 +91,7 @@ const CropRegisteration = () => {
                       Specify the area of cultivation in acres
                     </label>
                     <Input
+                    type = "number"
                       className="bg-green-100"
                       id="cultivation"
                       placeholder="Enter area in acres"
@@ -108,10 +111,10 @@ const CropRegisteration = () => {
                       Expected month of harvest
                     </label>
                     <Input
-                      type="month"
+                      type="date"
                       className="bg-green-100"
                       id="timeforharvest"
-                      placeholder="Enter here"
+                      placeholder="date/month/year"
                       {...register("timeforharvest", {
                         required: true,
                       })}
@@ -128,6 +131,7 @@ const CropRegisteration = () => {
                       Expected yield per acre
                     </label>
                     <Input
+                    type = "number"
                       className="bg-green-100"
                       id="yieldperacre"
                       placeholder="Please enter the expected yield per acre in kilograms"
