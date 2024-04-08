@@ -123,7 +123,7 @@ const Home = () => {
                 ABOUT US
               </div>
 
-              <div className="text-xl">
+              <div className="text-xl font-serif">
                 Blockchain technology holds promise for promoting green
                 initiatives through its capacity to enhance transparency and
                 accountability. By enabling peer-to-peer energy trading,
@@ -143,7 +143,7 @@ const Home = () => {
                 accountability, and innovation in various sectors.
               </div>
 
-              <div className="text-xl">
+              <div className="text-xl font-serif">
                 Blockchain technology offers a transformative solution for
                 advancing green initiatives by enhancing transparency and
                 accountability in environmental efforts. Through decentralized

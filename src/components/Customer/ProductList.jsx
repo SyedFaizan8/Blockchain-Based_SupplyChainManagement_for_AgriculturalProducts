@@ -12,15 +12,15 @@ const ProductList = () => {
 
         <div className="h-96 overflow-y-hidden z-10 relative shadow-lg shadow-black">
           <img
-            src="images/Products.jpg"
+            src="images/AAA.jpg"
             alt="BG"
-            className="z-10 absolute blur-sm"
+            className="z-10 absolute blur-sm h-96 w-screen"
           />
           <div className="absolute z-30 font-bold text-9xl flex w-full h-full justify-center items-center text-white -mt-8">
             Products
           </div>
         </div>
-        <div className="columns-4 gap-5 p-6 -mt-24 z-20 relative">
+        <div className="columns-4 gap-5 p-6 z-20 relativ mt-9">
           {/* here starts the products */}
           {products.map((product) => (
             <div
@@ -30,20 +30,26 @@ const ProductList = () => {
               <Link to={`/productDetails/${product.id}`}>
                 <div className="h-1/2 w-full overflow-hidden">
                   <img
-                    src={product.img}
+                    src={product.image}
                     alt="image"
-                    className="bg-cover hover:scale-110 transition"
+                    className="bg-cover hover:scale-110 transition rounded-3xl"
                   />
                 </div>
 
                 <div className=" h-fit w-full flex flex-col m-2">
+                  <div className="">{product.image}</div>
                   <div className="font-bold p-2">{product.name}</div>
                   <div className="p-2"> {product.description}</div>
                   <div className="p-2">{product.quantity}</div>
                   <div className="p-2 flex items-center flex-row">
                     <FaRupeeSign className="text-sm" />
                     <div className="text-lg"> {product.price}</div>
-                    <div className="">{product.image}</div>
+
+                    <div>
+                      <button className="bg-blue-400 rounded-2xl">
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
                 </div>
               </Link>

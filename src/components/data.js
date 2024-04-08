@@ -79,7 +79,7 @@ export const products = [
       "This is product H. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.",
     category: "Clothing",
     quantity: 35,
-    image:"images/loading.gif",
+    image:"",
   },
   {
     id: 9,
@@ -89,6 +89,7 @@ export const products = [
       "This is product I. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet.",
     category: "Home & Kitchen",
     quantity: 15,
+    image:"",
   },
   {
     id: 10,
