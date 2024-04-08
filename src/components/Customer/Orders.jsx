@@ -5,25 +5,22 @@ import { products } from "../data.js";
 import { useNavigate } from "react-router-dom";
 
 const Orders = () => {
-  const [data, setData] = useState();
   const navigate = useNavigate();
 
   const konsa = (data) => {
-    setData(data);
-    console.log(data);
     navigate(`/OrderDetails/${data}`);
   };
 
   return (
     <>
       <Header />
-      <div className="h-80 overflow-y-hidden z-10 relative shadow-sm shadow-black">
+      <div className="min-h-52 overflow-y-hidden z-10 relative shadow-sm shadow-black">
         <img
           src="images/Products.jpg"
           alt="BG"
           className="z-10 absolute blur-sm"
         />
-        <div className="absolute z-30 font-bold text-9xl flex w-full h-full justify-center items-center text-white -mt-8">
+        <div className="absolute z-30 font-bold text-9xl flex w-full h-full justify-center items-center text-white ">
           Orders
         </div>
       </div>

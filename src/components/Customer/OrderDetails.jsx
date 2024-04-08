@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { products } from "../data.js";
-import { Header, Footer, Button } from "../index.js";
+import { Header, Footer } from "../index.js";
 import { FaRupeeSign } from "react-icons/fa";
 import Timeline from "./Timeline.jsx";
 
@@ -40,13 +40,12 @@ const OrderDetails = () => {
             </div>
             <div className="flex gap-1">
               <div className="font-medium">{product.quantity} </div>
-              <div>items available</div>
+              <div>items</div>
             </div>
-            <Button>Add to Cart</Button>
           </div>
         </div>
       </div>
-      <Timeline id={productId} />
+      <Timeline id={productId} delivery={true} />
       <Footer />
     </div>
   );

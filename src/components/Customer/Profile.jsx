@@ -14,13 +14,13 @@ const Profile = () => {
   return (
     <>
       <Header />
-      <div className="h-80 overflow-y-hidden z-10 relative shadow-sm shadow-black">
+      <div className="h-1/6 overflow-y-hidden z-10 relative shadow-sm shadow-black">
         <img
           src="images/Products.jpg"
           alt="BG"
           className="z-10 absolute blur-sm"
         />
-        <div className="absolute z-30 font-bold text-9xl flex w-full h-full justify-center items-center text-white -mt-8">
+        <div className="absolute z-30 font-bold text-9xl flex w-full h-full justify-center items-center text-white ">
           Profile
         </div>
       </div>

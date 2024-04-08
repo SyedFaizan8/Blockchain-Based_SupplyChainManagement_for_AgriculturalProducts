@@ -53,13 +53,13 @@ const Cart = () => {
     <>
       <Header />
 
-      <div className="h-40 overflow-y-hidden z-10 relative shadow-sm shadow-black">
+      <div className="min-h-52 overflow-y-hidden z-10 relative shadow-sm shadow-black">
         <img
           src="images/Products.jpg"
           alt="BG"
           className="z-10 absolute blur-sm"
         />
-        <div className="absolute z-30 font-bold text-8xl flex w-full h-full justify-center items-center text-white">
+        <div className="absolute z-30 font-bold text-9xl flex w-full h-full justify-center items-center text-white ">
           Cart
         </div>
       </div>
@@ -77,7 +77,10 @@ const Cart = () => {
               <div className="col-span-1 ">Price</div>
             </div>
             {items.map((item) => (
-              <div className="grid grid-cols-6 p-2 border-b-2 text-center place-items-center">
+              <div
+                key={item.id}
+                className="grid grid-cols-6 p-2 border-b-2 text-center place-items-center"
+              >
                 <div className="col-span-3 h-fit">
                   <div className="flex">
                     <img
