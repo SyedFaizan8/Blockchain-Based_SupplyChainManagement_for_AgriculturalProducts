@@ -82,7 +82,7 @@ function Signup() {
           <form onSubmit={handleSubmit(create)}>
             <div className="space-y-5">
               <Select
-                options={["customer", "farmer", "authority"]}
+                options={["customer", "farmer", "authority", "courier"]}
                 label="Role"
                 className="mt-4"
                 {...register("role", { required: true })}

@@ -88,12 +88,11 @@ const Home = () => {
                           className="bg-cover hover:scale-125 transition duration-500"
                         />
                       </div>
-
                       <div className=" h-fit w-full flex flex-col m-2">
                         <div className="font-bold p-2">{product.name}</div>
                         <div className="p-2"> {product.description}</div>
                         <div className="p-2">{product.quantity}</div>
-                        <div className="p-2 flex items-center flex-row">
+                        <div className="p-2 flex items-center">
                           <FaRupeeSign className="text-sm" />
                           <div className="text-lg"> {product.price}</div>
                         </div>
@@ -109,32 +108,36 @@ const Home = () => {
         {/* About Us*/}
         <Element name="about-us">
           <div className="flex flex-row relative h-[500px] mb-6">
-            <div className="flex flex-col justify-center px-10 gap-y-10">
-              <div className="font-bold text-4xl leading-10">ABOUT US</div>
+            <div className="flex flex-col justify-center px-10 gap-y-10 ">
+              <div className="font-bold text-4xl leading-10 ">ABOUT US</div>
 
               <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint
-                reprehenderit fuga distinctio cum dicta, culpa asperiores
-                ratione totam nulla itaque incidunt, eius magni ipsam et esse ea
-                expedita nisi adipisci dolor in sequi dolores vero! Consequatur,
-                iure id. Dignissimos a corrupti harum explicabo quam, expedita
-                aut distinctio eos error sint.
+                Blockchain technology holds promise for promoting green
+                initiatives through its capacity to enhance transparency and
+                accountability. By enabling peer-to-peer energy trading,
+                blockchain facilitates the decentralized exchange of renewable
+                energy, empowering individuals to participate in the green
+                economy directly. Additionally, blockchain's transparent
+                tracking of carbon emissions and offsets provides a reliable
+                framework for monitoring and verifying environmental impact
+                reduction efforts, ensuring that businesses and organizations
+                uphold their commitments to sustainability. Furthermore,
+                blockchain's role in transparent supply chain management allows
+                consumers to make informed decisions about
+                environmentally-friendly products, incentivizing businesses to
+                adopt more sustainable practices. Overall, blockchain has the
+                potential to drive significant progress towards a greener and
+                more sustainable future by fostering transparency,
+                accountability, and innovation in various sectors.
               </div>
+              {/* <div></div> */}
               <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint
-                reprehenderit fuga distinctio cum dicta, culpa asperiores
-                ratione totam nulla itaque incidunt, eius magni ipsam et esse ea
-                expedita nisi adipisci dolor in sequi dolores vero! Consequatur,
-                iure id. Dignissimos a corrupti harum explicabo quam, expedita
-                aut distinctio eos error sint.
-              </div>
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint
-                reprehenderit fuga distinctio cum dicta, culpa asperiores
-                ratione totam nulla itaque incidunt, eius magni ipsam et esse ea
-                expedita nisi adipisci dolor in sequi dolores vero! Consequatur,
-                iure id. Dignissimos a corrupti harum explicabo quam, expedita
-                aut distinctio eos error sint.
+                Blockchain technology offers a transformative solution for
+                advancing green initiatives by enhancing transparency and
+                accountability in environmental efforts. Through decentralized
+                peer-to-peer energy trading, blockchain enables the efficient
+                exchange of renewable energy, empowering individuals to
+                participate in sustainable energy practices.
               </div>
             </div>
             <img className="h-full" src="images/about.png" alt="about us" />

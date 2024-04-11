@@ -55,7 +55,7 @@ function Login() {
           <form onSubmit={handleSubmit(login)} className="mt-8">
             <div className="space-y-5">
               <Select
-                options={["customer", "farmer", "authority"]}
+                options={["customer", "farmer", "authority", "courier"]}
                 label="Role"
                 {...register("role", { required: true })}
               />

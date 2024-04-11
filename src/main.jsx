@@ -31,6 +31,7 @@ import {
   FinalCertification,
   MidtermVerification,
 } from "./components/Authority/index.js";
+import Dash from "./components/Courier/Dash.jsx";
 
 const router = createBrowserRouter([
   {
@@ -194,6 +195,17 @@ const router = createBrowserRouter([
         element: (
           <AuthLayout requiredRole="authority" authentication={true}>
             <FinalCertification />
+          </AuthLayout>
+        ),
+      },
+
+      // here starts the courier routes
+
+      {
+        path: "/courier",
+        element: (
+          <AuthLayout requiredRole="courier" authentication={true}>
+            <Dash />
           </AuthLayout>
         ),
       },
