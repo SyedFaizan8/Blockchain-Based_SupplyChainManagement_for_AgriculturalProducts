@@ -157,7 +157,7 @@ const Timeline = ({ id, delivery }) => {
               <>
                 <div className="col-span-4 w-full h-full"></div>
                 <div className="relative col-span-1 w-full h-full flex justify-center items-center">
-                  <div className="h-1/2 self-start w-1 bg-indigo-300"></div>
+                  <div className="h-full w-1 bg-indigo-300"></div>
                   <div className="w-1/2 right-0  h-1 bg-indigo-300 absolute"></div>
                   <div className="absolute w-6 h-6 rounded-full bg-indigo-400 z-10 text-white text-center">
                     8
@@ -166,11 +166,35 @@ const Timeline = ({ id, delivery }) => {
                 <div className="col-span-4 w-full h-full ">
                   <div className="w-full h-full bg-indigo-400 rounded-md p-2 md:pl-4">
                     <h1 className="text-white text-xl font-medium py-2">
+                      Pick Up From Farmer
+                    </h1>
+                    <p className="text-gray-100 text-md">
+                      {product.pickupfromfarmer}
+                    </p>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* <!-- Stack 9 --> */}
+            {delivery && (
+              <>
+                <div className="col-span-4 w-full h-full ">
+                  <div className="w-full h-full bg-indigo-400 rounded-md p-2 md:pl-4">
+                    <h1 className="text-white text-xl font-medium py-2">
                       Delivered at
                     </h1>
                     <p className="text-gray-100 text-md">{product.delivered}</p>
                   </div>
                 </div>
+                <div className="relative col-span-1 w-full h-full flex justify-center items-center">
+                  <div className="h-1/2 self-start w-1 bg-indigo-300"></div>
+                  <div className="w-1/2 left-0  h-1 bg-indigo-300 absolute"></div>
+                  <div className="absolute w-6 h-6 rounded-full bg-indigo-400 z-10 text-white text-center">
+                    9
+                  </div>
+                </div>
+                <div className="col-span-4 w-full h-full"></div>
               </>
             )}
           </div>

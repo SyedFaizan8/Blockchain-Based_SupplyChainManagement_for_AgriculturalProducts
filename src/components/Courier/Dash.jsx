@@ -3,14 +3,14 @@ import { cropRegistration } from "../data";
 import { Header, Footer } from "../index";
 
 const Dash = () => {
-  const [productStatus, setProductStatus] = useState({});
+  const [pickup, setPickup] = useState({});
   const [delivery, setDelivery] = useState({});
 
   const handleApproval = (productId) => {
-    if (!productStatus[productId] || productStatus[productId] !== "Approved") {
-      setProductStatus((prevStatus) => ({
+    if (!pickup[productId] || pickup[productId] !== "PickedUp") {
+      setPickup((prevStatus) => ({
         ...prevStatus,
-        [productId]: "Approved",
+        [productId]: "PickedUp",
       }));
     }
   };
@@ -65,15 +65,13 @@ const Dash = () => {
                   <button
                     onClick={() => handleApproval(product.id)}
                     className={`${
-                      productStatus[product.id] === "Approved"
+                      pickup[product.id] === "PickedUp"
                         ? "bg-green-500"
                         : "bg-red-500"
                     } rounded-lg my-2 p-2`}
-                    disabled={productStatus[product.id] === "Approved"}
+                    disabled={pickup[product.id] === "PickedUp"}
                   >
-                    {productStatus[product.id] === "Approved"
-                      ? "Approved"
-                      : "Approve"}
+                    {pickup[product.id] === "PickedUp" ? "PickedUp" : "PickUp"}
                   </button>
                 </td>
                 <td>
