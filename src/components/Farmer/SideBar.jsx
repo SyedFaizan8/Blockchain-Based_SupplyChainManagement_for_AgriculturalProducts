@@ -5,7 +5,6 @@ import { GiArchiveRegister } from "react-icons/gi";
 import { MdOutlineDomainVerification } from "react-icons/md";
 import { GrCertificate } from "react-icons/gr";
 import { VscListOrdered } from "react-icons/vsc";
-import { MdOutlineLocalShipping } from "react-icons/md";
 
 const SideBar = ({ className }) => {
   const location = useLocation();
@@ -64,17 +63,6 @@ const SideBar = ({ className }) => {
         >
           <VscListOrdered className="mt-1" />
           <div>Orders</div>
-        </Link>
-
-        <Link
-          to="/farmer/pick-up-fromcourier"
-          className={`cursor-pointer flex flex-row gap-1 p-3  hover:bg-green-600 transition ${
-            location.pathname === "/farmer/pick-up-fromcourier" &&
-            "bg-green-600"
-          }`}
-        >
-          <MdOutlineLocalShipping className="mt-1" />
-          <div>Courier Pick ups</div>
         </Link>
       </div>
     </div>

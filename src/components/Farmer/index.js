@@ -3,7 +3,6 @@ import Farmer from "./Farmer.jsx";
 import FarmerHome from "./FarmerHome.jsx";
 import MidtermVerify from "./MidtermVerify.jsx";
 import OrdersFrom from "./OrdersFrom.jsx";
-import PickUpCourier from "./PickUpCourier.jsx";
 import RequestCertification from "./RequestCertification.jsx";
 
 export {
@@ -12,6 +11,5 @@ export {
   FarmerHome,
   MidtermVerify,
   OrdersFrom,
-  PickUpCourier,
   RequestCertification,
 };

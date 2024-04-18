@@ -23,7 +23,6 @@ import {
   CropRegisteration,
   MidtermVerify,
   OrdersFrom,
-  PickUpCourier,
   RequestCertification,
 } from "./components/Farmer/index.js";
 import {
@@ -158,14 +157,6 @@ const router = createBrowserRouter([
             element: (
               <AuthLayout requiredRole="farmer" authentication={true}>
                 <OrdersFrom />
-              </AuthLayout>
-            ),
-          },
-          {
-            path: "/farmer/pick-up-fromcourier",
-            element: (
-              <AuthLayout requiredRole="farmer" authentication={true}>
-                <PickUpCourier />
               </AuthLayout>
             ),
           },
