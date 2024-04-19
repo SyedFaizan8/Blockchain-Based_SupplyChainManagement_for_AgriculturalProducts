@@ -1,8 +1,27 @@
-# React + Vite
+# Hardhat Configuration guide.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> [!NOTE]
+> run these below commands at ` .../Blockchain ` directry.
 
-Currently, two official plugins are available:
+#### Installation of node modules.
+```
+npm i 
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> [!CAUTION]
+> Make sure to change the private key in ` hardhat.config.js ` file at ` accounts:["REPLACE WITH PRIVATE KEY OF METAMASK ACCOUNT"] ` and the account should be any one from ` GANACHE ` only.
+
+#### Compiling solidity contract.
+```
+npx hardhat compile
+```
+
+#### To deploy the UserManager contract run.
+```
+npx hardhat ignition deploy ignition/modules/UserManager.js
+```
+
+#### To deploy the ProductManager contract run.
+```
+npx hardhat ignition deploy ignition/modules/ProductManager.js
+```
