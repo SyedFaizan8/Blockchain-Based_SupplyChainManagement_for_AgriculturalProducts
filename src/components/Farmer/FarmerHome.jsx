@@ -1,7 +1,14 @@
 import React from "react";
 import { products } from "../data.js";
+import { useNavigate } from "react-router-dom";
 
 const FarmerHome = () => {
+  const navigate = useNavigate();
+
+  const konsa = (data) => {
+    navigate(`/farmer/ProductDetails/${data}`);
+  };
+
   return (
     <>
       <img
@@ -22,7 +29,11 @@ const FarmerHome = () => {
           </thead>
           <tbody className="text-center font-semibold bg-white">
             {products.map((product) => (
-              <tr key={product.id} className="border-2 border-green-800">
+              <tr
+                onClick={() => konsa(product.id)}
+                key={product.id}
+                className="border-2 border-green-800 hover:bg-slate-400"
+              >
                 <td>{product.id}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>

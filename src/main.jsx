@@ -24,6 +24,7 @@ import {
   MidtermVerify,
   OrdersFrom,
   RequestCertification,
+  FarmerProducts,
 } from "./components/Farmer/index.js";
 import {
   CropValidation,
@@ -114,7 +115,7 @@ const router = createBrowserRouter([
       {
         path: "/farmer",
         element: (
-          <AuthLayout requiredRole="farmer" authentication={false}>
+          <AuthLayout requiredRole="farmer" authentication={true}>
             <Farmer />
           </AuthLayout>
         ),
@@ -124,6 +125,14 @@ const router = createBrowserRouter([
             element: (
               <AuthLayout requiredRole="farmer" authentication={true}>
                 <FarmerHome />
+              </AuthLayout>
+            ),
+          },
+          {
+            path: "/farmer/ProductDetails/:id",
+            element: (
+              <AuthLayout requiredRole="farmer" authentication={true}>
+                <FarmerProducts />
               </AuthLayout>
             ),
           },

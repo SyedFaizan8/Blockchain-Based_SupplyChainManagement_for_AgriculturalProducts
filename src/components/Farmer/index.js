@@ -4,6 +4,7 @@ import FarmerHome from "./FarmerHome.jsx";
 import MidtermVerify from "./MidtermVerify.jsx";
 import OrdersFrom from "./OrdersFrom.jsx";
 import RequestCertification from "./RequestCertification.jsx";
+import FarmerProducts from "./FarmerProducts.jsx";
 
 export {
   CropRegisteration,
@@ -12,4 +13,5 @@ export {
   MidtermVerify,
   OrdersFrom,
   RequestCertification,
+  FarmerProducts,
 };
