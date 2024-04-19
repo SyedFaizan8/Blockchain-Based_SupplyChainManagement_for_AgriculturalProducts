@@ -5,7 +5,6 @@ import Button from "../Button.jsx";
 import useCrop from "../../Customhooks/crops.jsx";
 
 const CropRegisteration = () => {
-
   const { cropRegister } = useCrop();
 
   const {
@@ -14,8 +13,20 @@ const CropRegisteration = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async ({ cropname, area, cultivation, timeforharvest, yieldperacre }) => {
-    await cropRegister(cropname, area, cultivation, timeforharvest, yieldperacre);
+  const onSubmit = async ({
+    cropname,
+    area,
+    cultivation,
+    timeforharvest,
+    yieldperacre,
+  }) => {
+    await cropRegister(
+      cropname,
+      area,
+      cultivation,
+      timeforharvest,
+      yieldperacre
+    );
   };
 
   return (
@@ -38,13 +49,26 @@ const CropRegisteration = () => {
                     <label htmlFor="cropname" className="font-bold">
                       Crop Name
                     </label>
-                    <Input
-                      className="bg-green-100"
+                    <Select
+                      options={[
+                        "Rice",
+                        "Wheat",
+                        "Maize",
+                        "Barley",
+                        "Millet",
+                        "Oats",
+                        "Lentils",
+                        "Chickpeas",
+                        "Kidneybeans",
+                        "Mungbeans",
+                        "Blackgram",
+                        "Soybeans",
+                        "Peas",
+                        "Quinoa",
+                      ]}
                       id="cropname"
-                      placeholder="Enter crop name"
-                      {...register("cropname", {
-                        required: true,
-                      })}
+                      className="mb-4"
+                      {...register("cropname", { required: true })}
                     />
                     {errors.cropname && (
                       <span className="text-red-500">
