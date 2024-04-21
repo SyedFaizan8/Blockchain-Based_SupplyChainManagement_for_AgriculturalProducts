@@ -25,3 +25,8 @@ npx hardhat ignition deploy ignition/modules/UserManager.js
 ```
 npx hardhat ignition deploy ignition/modules/ProductManager.js
 ```
+
+#### To Test Solidity Contract
+```
+npx hardhat test
+```

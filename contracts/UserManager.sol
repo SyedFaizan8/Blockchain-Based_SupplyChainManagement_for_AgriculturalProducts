@@ -15,8 +15,37 @@ contract UserManager is PaymentContract {
         address ETHAddress;
     }
 
+    struct Details{
+        address ETHAddress;
+        string FullName;
+        uint contact;
+        string house;
+        string street;
+        uint pincode;
+        string city;
+        string state;
+    }
+
+    mapping (address => Details) details;
     mapping(address => Customer) customers;
     event createCustomerEvent(string name,string email,string password,string role);
+    event fillDetailsEvent();
+
+    function fillDetails(string memory name,uint contact,string memory house,string memory street,uint pincode,string memory city,string memory state) public {
+        details[msg.sender].ETHAddress = msg.sender;
+        details[msg.sender].FullName = name;
+        details[msg.sender].contact = contact;
+        details[msg.sender].house = house;
+        details[msg.sender].street = street;
+        details[msg.sender].pincode = pincode;
+        details[msg.sender].city = city;
+        details[msg.sender].state = state;
+        emit fillDetailsEvent();
+    }  
+
+    function getDetails() public view returns(Details memory){
+        return details[msg.sender];
+    }
 
     function createCustomer(string memory name,string memory email,string memory password,string memory role) public {
         require(keccak256(abi.encodePacked(customers[msg.sender].ETHAddress)) != keccak256(abi.encodePacked(msg.sender)),"Customer already exist!");

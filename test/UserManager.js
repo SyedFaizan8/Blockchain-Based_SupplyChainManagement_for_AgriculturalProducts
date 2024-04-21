@@ -22,6 +22,19 @@ describe("Users and Payment testing", function () {
     await eventPromise;
   });
 
+  it("fillDetails", async function () {
+    const eventPromise = new Promise((resolve, reject) => {
+      UserManager.once("fillDetailsEvent", () => { });
+      resolve();
+    });
+    await UserManager.fillDetails("Devendra B",98978868,"houseNo","street name",577598,"Hiriyur","Karnataka");
+    await eventPromise;
+  });
+
+  it("getDetails",async function(){
+    await UserManager.getDetails();
+  })
+
   it("createFarmer", async function () {
     const eventPromise = new Promise((resolve, reject) => {
       UserManager.once("createFarmerEvent", (name, email, password, role) => {
@@ -100,7 +113,7 @@ describe("Users and Payment testing", function () {
     ];
     const orderId = "ABC123";
     const timeofOrdered = "2022-04-12";
-    const totalPrice = 5400000000000; 
+    const totalPrice = 5400000000000;
     await UserManager.orderProduct(items, timeofOrdered, totalPrice, orderId, { value: totalPrice });
   });
 

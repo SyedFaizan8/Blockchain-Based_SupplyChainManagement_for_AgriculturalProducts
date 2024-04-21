@@ -78,7 +78,7 @@ contract PaymentContract {
                 for (uint j = 0; j < orderList[i].items.length; j++) {
                     if (keccak256(abi.encodePacked(orderList[i].items[j].productId)) == keccak256(abi.encodePacked(pid))) {
                         orderList[i].items[j].status = OrderStatus.Delivered;
-                        orderList[i].items[j].timeofPicked = time;
+                        orderList[i].items[j].timeofDelivered = time;
                         break;
                     }
                 }

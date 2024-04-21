@@ -12,7 +12,7 @@ module.exports = {
     // },
     ganache:{
       url: "http://127.0.0.1:7545",
-      accounts: ["0x357d652851dbdc29cc3dcedbb6504df7a8b111d6856f30a1864a26add2cbbfb9"]
+      accounts: ["0x1e5d6027e5502f265501b06fd1ac91b576bbc518d183ded1cb099ef78435d012"]
     }
   },
   solidity: {
