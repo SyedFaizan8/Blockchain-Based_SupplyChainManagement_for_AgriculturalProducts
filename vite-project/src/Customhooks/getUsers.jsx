@@ -66,7 +66,7 @@ const useGetusers = () => {
         }
     }
 
-    return [getCustomer, getFarmer, getAuthority,getCourier];
+    return [getCustomer, getFarmer, getAuthority, getCourier];
 }
 
 

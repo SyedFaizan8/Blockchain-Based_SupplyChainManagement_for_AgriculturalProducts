@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaRupeeSign } from "react-icons/fa";
 import { Header, Footer } from "../index.js";
 import FinalProduct from "../../Customhooks/finalProducts.jsx";
+import { toast } from "react-toastify";
 
 function ProductList() {
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -17,8 +18,7 @@ function ProductList() {
       const result = await fetchProducts();
       setProducts(result);
     } catch (error) {
-      //TODO: show Error
-      console.error("Error fetching data:", error);
+      toast.error("An error occured");
     }
   };
 
@@ -47,7 +47,7 @@ function ProductList() {
               <Link to={`/productDetails/${product.id}`}>
                 <div className="h-1/2 w-full overflow-hidden">
                   <img
-                    src={`crops/${product.productName}.jpg`}
+                    src="images/feature.png"
                     alt="image"
                     className="bg-cover hover:scale-110 transition"
                   />
@@ -56,12 +56,9 @@ function ProductList() {
                 <div className=" h-fit w-full flex flex-col m-2">
                   <div className="font-bold p-2">{product.productName}</div>
                   <div className="p-2"> {product.description}</div>
-                  <div className="p-2">{product.quantity.toString()}</div>
+                  <div className="p-2">{(product.quantity).toString()}</div>
                   <div className="p-2 flex items-center flex-row">
-                    <div className="text-lg">
-                      {" "}
-                      {product.price.toString()} ETH
-                    </div>
+                    <div className="text-lg"> {(product.price).toString()} ETH</div>
                   </div>
                 </div>
               </Link>
@@ -72,6 +69,6 @@ function ProductList() {
       </div>
     </>
   );
-}
+};
 
 export default ProductList;

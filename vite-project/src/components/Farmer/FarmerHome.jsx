@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useCrop from "../../Customhooks/crops.jsx";
+import { useSelector } from "react-redux";
 
 const FarmerHome = () => {
   const [products, setCrops] = useState([]);
   const { getCrops } = useCrop();
+  const address = useSelector(state => state.addContract.address);
 
   useEffect(() => {
     const fetchData = async () => {
       const crops = await getCrops();
       setCrops(crops);
     }
-
     fetchData();
   }, []);
   const navigate = useNavigate();
+  const filterFarmer = products.filter((product) => product.ETHAddress == address);
 
   const konsa = (data) => {
-    console.log(data.product.id);
     navigate(`/farmer/ProductDetails/${data.product.id}`);
   };
   return (
@@ -39,7 +40,7 @@ const FarmerHome = () => {
             </tr>
           </thead>
           <tbody className="text-center font-semibold bg-white">
-            {products.map((product) => (
+            {filterFarmer.map((product) => (
               <tr
                 onClick={() => konsa({ product: product })}
                 key={product.id}

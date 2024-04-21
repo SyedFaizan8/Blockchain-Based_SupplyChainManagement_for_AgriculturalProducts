@@ -4,10 +4,14 @@ import Footer from "../Footer/Footer.jsx";
 import { useForm } from "react-hook-form";
 import Input from "../Input.jsx";
 import Button from "../Button.jsx";
+import useProfile from "../../Customhooks/useProfile.jsx";
 
 const Profile = () => {
   const { register, handleSubmit } = useForm();
-  const update = async (data) => {
+  const { fillDetails } = useProfile();
+
+  const update = async (profileData) => {
+    await fillDetails(profileData);
   };
 
   return (
@@ -35,7 +39,7 @@ const Profile = () => {
                       <Input
                         id="full-name"
                         placeholder="Full name"
-                        {...register("full-name", {
+                        {...register("full_name", {
                           required: true,
                         })}
                       />

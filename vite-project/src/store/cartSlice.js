@@ -33,7 +33,12 @@ export const cartSlice = createSlice({
       const item = state.items.find((item) => item.id === id);
 
       if (item) {
-        item.requantity += increment ? 1 : -1;
+        if (increment && item.requantity < item.quantity) {
+          item.requantity += 1;
+        }
+        if(!increment){
+          item.requantity -= 1;
+        }
         if (item.requantity === 0) {
           state.items = state.items.filter((item) => item.id !== id);
         }

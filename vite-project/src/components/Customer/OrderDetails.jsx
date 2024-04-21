@@ -19,10 +19,6 @@ const OrderDetails = () => {
   }, []);
 
   const product = products.find((p) => p.id == location.state.order.productId);
-  let delivered = false;
-  if(location.state.order.status == 2){
-    delivered=true;
-  }
 
   if (!product) {
     return <div>Loading...</div>; 
@@ -63,7 +59,7 @@ const OrderDetails = () => {
           </div>
         </div>
       </div>
-      <Timeline product={product} order={location.state.order} delivery={delivered} />
+      <Timeline product={product} order={location.state.order} />
       <Footer />
     </div>
   );

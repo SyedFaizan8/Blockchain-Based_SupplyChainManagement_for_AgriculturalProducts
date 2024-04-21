@@ -1,6 +1,6 @@
 import React from "react";
 
-const Timeline = ({ product ,order, delivery}) => {
+const Timeline = ({ product ,order}) => {
   return (
     <>
       <div className="h-auto w-full flex flex-col place-items-center bg-[#D8F3DC] p-4">
@@ -103,7 +103,7 @@ const Timeline = ({ product ,order, delivery}) => {
             <div className="col-span-4 w-full h-full"></div>
             <div className="relative col-span-1 w-full h-full flex justify-center items-center">
               <div
-                className={`${!(order.status).toString() === "Ordered" ? "h-1/2 self-start" : "h-full"
+                className={`${order == undefined ? "h-1/2 self-start" : "h-full"
                   }  w-1 bg-indigo-300`}
               ></div>
               <div className="w-1/2 right-0  h-1 bg-indigo-300 absolute"></div>
@@ -122,7 +122,7 @@ const Timeline = ({ product ,order, delivery}) => {
               </div>
             </div>
             {/* <!-- Stack 7 --> */}
-            {(order.status).toString() === "Ordered" || (order.status).toString() === "Picked" || (order.status).toString() === "Delivered" && (
+            {order && (order.status === "Ordered" || order.status === "Picked" || order.status === "Delivered") &&(
               <>
                 <div className="col-span-4 w-full h-full ">
                   <div className="w-full h-full bg-indigo-400 rounded-md p-2 md:pl-4">
@@ -144,7 +144,7 @@ const Timeline = ({ product ,order, delivery}) => {
             )}
 
             {/* <!-- Stack 8 --> */}
-            {(order.status).toString() === "Picked" || (order.status).toString() === "Delivered" && (
+            {order && (order.status === "Picked" || order.status === "Delivered") && (
               <>
                 <div className="col-span-4 w-full h-full"></div>
                 <div className="relative col-span-1 w-full h-full flex justify-center items-center">
@@ -168,7 +168,7 @@ const Timeline = ({ product ,order, delivery}) => {
             )}
 
             {/* <!-- Stack 9 --> */}
-            {(order.status).toString() === "Delivered" && (
+            {(order && (order.status === "Delivered")) && (
               <>
                 <div className="col-span-4 w-full h-full ">
                   <div className="w-full h-full bg-indigo-400 rounded-md p-2 md:pl-4">

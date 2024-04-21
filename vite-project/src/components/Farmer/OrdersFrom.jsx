@@ -1,7 +1,23 @@
-import React from "react";
-import { products } from "../data";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import usePayment from "../../Customhooks/usePayment";
 
 const OrdersFrom = () => {
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const address = useSelector(state => state.addContract.address);
+  const [orders, setOrders] = useState([]);
+  const { getOrders } = usePayment();
+
+  const fetchData = async function () {
+    const orders = await getOrders();
+    setOrders(orders);
+  }
+
+  const filterOrder = orders.filter((order) => order.farmer == address);
+
   return (
     <>
       <img
@@ -14,19 +30,23 @@ const OrdersFrom = () => {
         <table className=" w-full mx-2  h-auto rounded-lg overflow-hidden">
           <thead className=" text-white text-xl bg-black border-green-800 border-2">
             <tr>
-              <th>ID</th>
+              <th>OID</th>
+              <th>PID</th>
               <th>Name</th>
               <th>Price</th>
-              <th>Category</th>
+              <th>Ordered</th>
+              <th>customer</th>
             </tr>
           </thead>
           <tbody className="text-center font-semibold bg-white">
-            {products.map((product) => (
-              <tr key={product.id} className="border-2 border-green-800">
-                <td>{product.id}</td>
-                <td>{product.name}</td>
-                <td>{product.price}</td>
-                <td>{product.category}</td>
+            {filterOrder.map((order) => (
+              <tr key={order.key} className="border-2 border-green-800">
+                <td>{order.orderId}</td>
+                <td>{order.productId}</td>
+                <td>{order.productName}</td>
+                <td>{(Number(order.price) / 1e18).toString()} ETH</td>
+                <td>{order.timeofOrdered}</td>
+                <td>{order.customer}</td>
               </tr>
             ))}
           </tbody>

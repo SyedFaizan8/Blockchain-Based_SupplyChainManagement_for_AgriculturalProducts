@@ -18,8 +18,8 @@ function Certificate() {
             productContract.once("reqCertificateEvent", () => {
                 toast.success(`Your request of issue for Certificate has submitted successfully`);
             });
-        } catch (e) {
-            alert(e)
+        } catch (error) {
+            toast.error("An error occured")
         }
     }
 

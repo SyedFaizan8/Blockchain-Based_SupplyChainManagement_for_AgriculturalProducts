@@ -7,9 +7,11 @@ import { adjustQuantity } from "../../store/cartSlice.js";
 import usePayment from "../../Customhooks/usePayment.jsx";
 import { removeItem } from "../../store/cartSlice.js";
 
+
 // FIXME: Total Quantity
 
 const Cart = () => {
+
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
   const { orderProduct } = usePayment();
@@ -22,7 +24,7 @@ const Cart = () => {
     dispatch(adjustQuantity({ id, increment: false }));
   };
 
-  const handleDeleteCart = (item) => {
+  const handleDeleteCart =  (item) => {
     dispatch(removeItem(item));
   };
 
@@ -37,9 +39,8 @@ const Cart = () => {
   );
 
   const handleCheckout = async () => {
-    console.log(totalAmount);
-    await orderProduct(items, totalAmount);
-  };
+    await orderProduct(items,totalAmount);
+  }
 
   if (items.length === 0)
     return (
@@ -114,7 +115,7 @@ const Cart = () => {
                       -
                     </button>
                     <div className="flex h-full font-bold w-full place-content-center py-2 border-t-2 border-b-2 border-[#D8F3DC]">
-                      {totalQuantity}
+                      {item.requantity}
                     </div>
                     <button
                       className="bg-[#D8F3DC] p-2 h-full w-full font-bold rounded-r-sm"
@@ -135,7 +136,7 @@ const Cart = () => {
                 </div>
 
                 <div className="p-2 text-start flex font-medium">
-                  <div className="text-lg">{item.price.toString()} ETH</div>
+                  <div className="text-lg">{(item.price * item.requantity).toString()} ETH</div>
                 </div>
               </div>
             ))}
@@ -162,15 +163,13 @@ const Cart = () => {
               </div>
             </div>
             <div className="w-full mt-2 mb-2 px-5">
-              <button
-                className="w-full bg-[#D8F3DC] rounded-lg p-1 font-semibold"
-                onClick={handleCheckout}
-              >
+              <button className="w-full bg-[#D8F3DC] rounded-lg p-1 font-semibold" onClick={handleCheckout}>
                 CHECKOUT
               </button>
             </div>
           </div>
         </div>
+
       </div>
       <Footer />
     </>

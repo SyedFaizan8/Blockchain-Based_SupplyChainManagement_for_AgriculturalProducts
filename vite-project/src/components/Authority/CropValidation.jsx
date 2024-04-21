@@ -35,7 +35,7 @@ const CropValidation = () => {
             <table className=" w-full mx-2  h-auto rounded-lg overflow-hidden">
               <thead className=" text-white text-xl bg-black border-green-800 border-2">
                 <tr>
-                  <th>ID</th>
+                  <th>PID</th>
                   <th>Crop Name</th>
                   <th>ETH Address</th>
                   <th>Address</th>

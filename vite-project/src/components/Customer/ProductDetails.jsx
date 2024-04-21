@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Header, Footer, Button } from "../index.js";
-import { FaRupeeSign } from "react-icons/fa";
+import { toast } from "react-toastify";
 import Timeline from "./Timeline.jsx";
 import FinalProduct from "../../Customhooks/finalProducts.jsx";
 import { useDispatch } from "react-redux";
@@ -25,7 +25,11 @@ const ProductDetail = () => {
   const product = products.find(p => p.id === id);
 
   const handleAddToCart = (product) => {
-    dispatch(addItem(product));
+    if (product.quantity == 0) {
+      toast.error("Product is out of Stack");
+    } else {
+      dispatch(addItem(product));
+    }
   };
 
   if (!product) {
@@ -82,7 +86,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-      <Timeline product={product} delicery={false} />
+      <Timeline product={product} />
       <Footer />
     </div>
   );

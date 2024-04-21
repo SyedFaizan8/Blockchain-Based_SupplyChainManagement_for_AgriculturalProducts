@@ -43,7 +43,8 @@ const Orders = () => {
         <table className=" w-full mx-2  h-auto rounded-lg overflow-hidden">
           <thead className=" text-white text-xl bg-black border-green-800 border-2">
             <tr>
-              <th>ID</th>
+              <th>OID</th>
+              <th>PID</th>
               <th>Farmer</th>
               <th>Price</th>
               <th>Time of Ordered</th>
@@ -57,6 +58,7 @@ const Orders = () => {
                 key={order.id}
                 className="border-2 border-green-800 hover:bg-slate-400"
               >
+                <td>{order.orderId}</td>
                 <td>{order.productId}</td>
                 <td>{order.farmer}</td>
                 <td>{Number(order.price) / 1e18} ETH</td>

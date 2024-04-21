@@ -41,20 +41,21 @@ const Home = () => {
         const result = await fetchProducts();
         setProducts(result);
       } catch (error) {
-        //TODO: show Error
-        console.error("Error fetching data:", error);
+        //TODO: show Error 
+        console.error('Error fetching data:', error);
       }
     };
     fetchData();
 
-    return () => {};
+    return () => { };
   }, []);
 
   const scrollsubmit = () => {
     dispatch(Section("home"));
   };
 
-  const onSubmit = async (data) => {};
+  const onSubmit = async (data) => {
+  };
 
   useEffect(() => {
     if (scroll) {
@@ -101,24 +102,19 @@ const Home = () => {
                     <Link to={`/productDetails/${product.id}`}>
                       <div className="h-1/2 w-full overflow-hidden">
                         <img
-                          src={`crops/${product.productName}.jpg`}
+                          src="images/feature.png"
                           alt="image"
                           className="bg-cover hover:scale-125 transition duration-500"
                         />
                       </div>
 
                       <div className=" h-fit w-full flex flex-col m-2">
-                        <div className="font-bold p-2">
-                          {product.productName}
-                        </div>
+                        <div className="font-bold p-2">{product.productName}</div>
                         <div className="p-2"> {product.description}</div>
                         {/* <div className="p-2">{product.quantity}</div> */}
                         <div className="p-2 flex items-center">
                           <FaRupeeSign className="text-sm" />
-                          <div className="text-lg">
-                            {" "}
-                            {product.price.toString()}
-                          </div>
+                          <div className="text-lg"> {(product.price).toString()}</div>
                         </div>
                       </div>
                     </Link>
@@ -161,7 +157,7 @@ const Home = () => {
                 iure id. Dignissimos a corrupti harum explicabo quam, expedita
                 aut distinctio eos error sint.
               </div> */}
-              <div>
+               <div>
                 Blockchain technology offers a transformative solution for
                 advancing green initiatives by enhancing transparency and
                 accountability in environmental efforts. Through decentralized

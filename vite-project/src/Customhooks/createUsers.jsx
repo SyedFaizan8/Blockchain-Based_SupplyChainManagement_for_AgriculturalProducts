@@ -23,7 +23,7 @@ const useCreate = () => {
     async function createFarmer(role, name, email, password) {
         await userContract.createFarmer(name, email, password, role);
         userContract.once("createFarmerEvent", (name, email, password, role) => {
-            window.localStorage.setItem("userData", JSON.stringify({ name, email, password,role }));
+            window.localStorage.setItem("userData", JSON.stringify({ name, email, password, role }));
             toast.success(`Farmer ${name} created successfully`);
             navigate(`/${role}`);
         });
@@ -32,7 +32,7 @@ const useCreate = () => {
     async function createAuthority(role, name, email, password) {
         await userContract.createAuthority(name, email, password, role)
         userContract.once("createAuthorityEvent", (name, email, password, role) => {
-            window.localStorage.setItem("userData", JSON.stringify({ name, email, password,role }));
+            window.localStorage.setItem("userData", JSON.stringify({ name, email, password, role }));
             toast.success(`Authority ${name} created successfully`);
             navigate(`/${role}/crop-validation`);
         });
@@ -41,13 +41,13 @@ const useCreate = () => {
     async function createcourier(role, name, email, password) {
         await userContract.createCourier(name, email, password, role)
         userContract.once("createCourierEvent", (name, email, password, role) => {
-            window.localStorage.setItem("userData", JSON.stringify({ name, email, password,role }));
+            window.localStorage.setItem("userData", JSON.stringify({ name, email, password, role }));
             toast.success(`Courier ${name} created successfully`);
             navigate(`/${role}`);
         });
     }
 
-    return [createCustomer, createFarmer, createAuthority,createcourier];
+    return [createCustomer, createFarmer, createAuthority, createcourier];
 }
 
 

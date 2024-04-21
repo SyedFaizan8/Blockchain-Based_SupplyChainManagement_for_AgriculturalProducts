@@ -1,53 +1,59 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import selectId from "./generateId";
 import FinalProduct from "./finalProducts";
+import { removeAllItem } from "../store/cartSlice";
 
 function usePayment() {
     const generateIdentifier = selectId();
     const userContract = useSelector(state => state.addContract.userContract);
     const { reduceQuantity } = FinalProduct();
+    const dispatch = useDispatch();
 
     async function orderProduct(items, totalAmount) {
         try {
-            const identifiers = [];
-            const data = await userContract.getAllOrderIds();
+            const userProfile = await userContract.getDetails();
+            if (!(userProfile.ETHAddress == 0x0000000000000000000000000000000000000000)) {
+                const identifiers = [];
+                const data = await userContract.getAllOrderIds();
 
-            if (data.length !== 0) {
-                data.map((element) => {
-                    identifiers.push(element);
+                if (data.length !== 0) {
+                    data.map((element) => {
+                        identifiers.push(element);
+                    });
+                }
+                totalAmount = BigInt(totalAmount * 1e18);
+                const oid = generateIdentifier(identifiers);
+                const time = new Date().toLocaleString();
+                let orders = [];
+
+                let reduceItem = [];
+
+                items.map((item) => {
+                    const price = BigInt(item.price * 1e18);
+                    orders.push({
+                        status: 0,
+                        productId: item.id,
+                        productName: item.productName,
+                        farmer: item.ETHAddress,
+                        totalPrice: price * BigInt(item.requantity),
+                        totalQuantity: item.requantity,
+                        timeofPicked: time,
+                        timeofDelivered: time,
+                    });
+
+                    reduceItem.push({ id: item.id, reduce: item.requantity });
                 });
+
+                await userContract.orderProduct(orders, time, totalAmount, oid, { value: totalAmount });
+                userContract.once("orderProductEvent", async () => {
+                    dispatch(removeAllItem());
+                    toast.success("Payment success");
+                });
+                await reduceQuantity(reduceItem);
+            } else {
+                toast.error("Please complete your profile")
             }
-            totalAmount = BigInt(totalAmount * 1e18);
-            const oid = generateIdentifier(identifiers);
-            const time = new Date().toLocaleString();
-            let orders = [];
-
-            let reduceQuantity = [];
-
-            items.map((item) => {
-                const price = BigInt(item.price * 1e18);
-                orders.push({
-                    status: 0,
-                    productId: item.id,
-                    productName: item.productName,
-                    farmer: item.ETHAddress,
-                    totalPrice: price * BigInt(item.requantity),
-                    totalQuantity: item.requantity,
-                    timeofPicked: time,
-                    timeofDelivered: time,
-                });
-
-                reduceQuantity.push({ id: item.id, reduce: item.requantity });
-            });
-
-            await userContract.orderProduct(orders, time, totalAmount, oid, { value: totalAmount });
-            userContract.once("orderProductEvent", async () => {
-                toast.success("Payment success");
-            });
-
-            await reduceQuantity(reduceQuantity);
-
         } catch (error) {
             console.log(error);
         }
