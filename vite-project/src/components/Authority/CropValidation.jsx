@@ -37,8 +37,7 @@ const CropValidation = () => {
                 <tr>
                   <th>PID</th>
                   <th>Crop Name</th>
-                  <th>ETH Address</th>
-                  <th>Address</th>
+                  <th>Wallet</th>
                   <th>Cultivation Area</th>
                   <th>Time Till Harvest</th>
                   <th>Expected Yield</th>
@@ -50,10 +49,9 @@ const CropValidation = () => {
                   <tr key={crop.id} className="border-2 border-green-800">
                     <td>{crop.id}</td>
                     <td>{crop.cropName}</td>
-                    <td>{crop.ETHAddress}</td>
-                    <td>{crop.location}</td>
+                    <td>{`${crop.ETHAddress.substring(0, 7)}...${crop.ETHAddress.substring(37, 42)}`}</td>
                     <td>{(crop.acre).toString()} acre</td>
-                    <td>{(crop.months).toString()} months</td>
+                    <td>{crop.months}</td>
                     <td>{(crop.yieldperacre).toString()} /acre</td>
                     <td>
                       {crop.isApproved ? (

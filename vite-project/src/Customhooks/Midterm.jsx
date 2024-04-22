@@ -9,7 +9,7 @@ function Midterm() {
             const date = new Date();
             const timeofApplied = date.toLocaleString();
             await productContract.midTermRegister(id,progress,months,timeofApplied);
-            productContract.once("midTermRegisterEvent",(id, progress,months)=>{
+            productContract.once("midTermRegisterEvent",(id)=>{
                 toast.success("MidTerm Registration success");
             })
         } catch (error) {

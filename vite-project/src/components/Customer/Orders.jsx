@@ -60,7 +60,7 @@ const Orders = () => {
               >
                 <td>{order.orderId}</td>
                 <td>{order.productId}</td>
-                <td>{order.farmer}</td>
+                <td>{`${order.farmer.substring(0, 7)}...${order.farmer.substring(37, 42)}`}</td>
                 <td>{Number(order.price) / 1e18} ETH</td>
                 <td>{order.timeofOrdered}</td>
                 <td>{order.status}</td>

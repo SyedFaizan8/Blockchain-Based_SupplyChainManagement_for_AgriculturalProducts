@@ -47,7 +47,7 @@ const FarmerHome = () => {
                 className="border-2 border-green-800 hover:bg-slate-400">
                 <td>{product.id}</td>
                 <td>{product.cropName}</td>
-                <td>{product.ETHAddress}</td>
+                <td>{`${product.ETHAddress.substring(0, 7)}...${product.ETHAddress.substring(37, 42)}`}</td>
                 <td>{product.location}</td>
               </tr>
             ))}

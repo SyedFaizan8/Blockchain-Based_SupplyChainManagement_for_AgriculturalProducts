@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Input from "../Input.jsx";
 import Button from "../Button.jsx";
 import useCrop from "../../Customhooks/crops.jsx";
+import Select from "../Select.jsx";
 
 const CropRegisteration = () => {
 
@@ -38,13 +39,26 @@ const CropRegisteration = () => {
                     <label htmlFor="cropname" className="font-bold">
                       Crop Name
                     </label>
-                    <Input
-                      className="bg-green-100"
+                    <Select
+                      options={[
+                        "Rice",
+                        "Wheat",
+                        "Maize",
+                        "Barley",
+                        "Millet",
+                        "Oats",
+                        "Lentils",
+                        "Chickpeas",
+                        "Kidneybeans",
+                        "Mungbeans",
+                        "Blackgram",
+                        "Soybeans",
+                        "Peas",
+                        "Quinoa",
+                      ]}
                       id="cropname"
-                      placeholder="Enter crop name"
-                      {...register("cropname", {
-                        required: true,
-                      })}
+                      className="mb-4"
+                      {...register("cropname", { required: true })}
                     />
                     {errors.cropname && (
                       <span className="text-red-500">
@@ -94,7 +108,7 @@ const CropRegisteration = () => {
                       Expected month of harvest
                     </label>
                     <Input
-                      type="month"
+                      type="date"
                       className="bg-green-100"
                       id="timeforharvest"
                       placeholder="Enter here"

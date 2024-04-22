@@ -32,7 +32,7 @@ const OrderDetails = () => {
         <div className="grid grid-cols-2 w-5/6">
           <div>
             <img
-              src="/images/feature.png"
+              src={`/crops/${product.productName}.jpg`}
               alt="image"
               className="bg-cover h-full w-full"
             />

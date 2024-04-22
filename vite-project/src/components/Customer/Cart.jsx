@@ -95,7 +95,7 @@ const Cart = () => {
                 <div className="col-span-3 h-fit">
                   <div className="flex">
                     <img
-                      src="images/feature.png"
+                      src={`/crops/${item.productName}.jpg`}
                       alt="fruit"
                       className="w-2/5"
                     />

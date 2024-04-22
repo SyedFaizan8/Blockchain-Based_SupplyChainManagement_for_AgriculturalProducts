@@ -73,7 +73,7 @@ const MidtermVerify = () => {
                       Expected month of harvest
                     </label>
                     <Input
-                      type="month"
+                      type="date"
                       className="bg-green-100"
                       id="months"
                       placeholder="Enter here"

@@ -1,5 +1,3 @@
-const { expect } = require("chai");
-
 let ProductManager;
 
 before(async function () {
@@ -16,7 +14,7 @@ describe("Crop and Product testing", function () {
                 reject(error);
             }
         })
-        await ProductManager.cropRegister("CID", "cropName", "cityName", "acre", 3, 5, "timeofApplied");
+        await ProductManager.cropRegister("CID", "cropName", "cityName", "acre", "months remaining", 5, "timeofApplied");
         await eventPromise;
     });
 
@@ -33,7 +31,7 @@ describe("Crop and Product testing", function () {
     });
 
     it("midTermRegister", async function () {
-        await ProductManager.midTermRegister("CID", "progress", 3, "time");
+        await ProductManager.midTermRegister("CID", "progress", "months remaining", "time");
     });
 
     it("getMidTerm", async function () {
@@ -70,7 +68,6 @@ describe("Crop and Product testing", function () {
     });
 
     it("reduceQuantity", async function () {
-        await ProductManager.reduceQuantity([{id:"CID",reduce:6}]);
-    })
-
+        await ProductManager.reduceQuantity([{ id: "CID", reduce: 6 }]);
+    });
 });

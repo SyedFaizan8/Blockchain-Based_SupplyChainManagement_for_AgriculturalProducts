@@ -47,7 +47,7 @@ function ProductList() {
               <Link to={`/productDetails/${product.id}`}>
                 <div className="h-1/2 w-full overflow-hidden">
                   <img
-                    src="images/feature.png"
+                    src={`/crops/${product.productName}.jpg`}
                     alt="image"
                     className="bg-cover hover:scale-110 transition"
                   />

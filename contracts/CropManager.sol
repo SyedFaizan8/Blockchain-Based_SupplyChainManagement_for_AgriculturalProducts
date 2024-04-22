@@ -10,7 +10,7 @@ contract CropManager {
         address ETHAddress;
         string location;
         string acre;
-        uint months;
+        string months;
         uint yieldperacre;
         string timeofApplied;
         string timeofVerified;
@@ -19,11 +19,11 @@ contract CropManager {
     }
 
     Crop[] crops;
-    event cropRegisterEvent(string id,string cropName,string location,string acre,uint months,uint yieldperacre,string timeofApplied);
+    event cropRegisterEvent(string id);
 
-    function cropRegister(string memory id,string memory cropName,string memory location,string memory acre,uint months,uint yieldperacre,string memory timeofApplied) public {
+    function cropRegister(string memory id,string memory cropName,string memory location,string memory acre,string memory months,uint yieldperacre,string memory timeofApplied) public {
         crops.push(Crop(id,cropName,msg.sender,location,acre,months,yieldperacre,timeofApplied,timeofApplied,false,false));
-        emit cropRegisterEvent(id,cropName,location,acre,months,yieldperacre,timeofApplied);
+        emit cropRegisterEvent(id);
     }
 
     function getCrops() view public returns(Crop[] memory){
@@ -60,7 +60,7 @@ contract CropManager {
         string id;
         string cropName;
         string progress;
-        uint months;
+        string months;
         string timeofApplied;
         string timeofVerified;
         bool isApproved;
@@ -68,7 +68,7 @@ contract CropManager {
     }
 
     MidTerm[] midterm;
-    event midTermRegisterEvent(string id,string progress,uint months,string timeofApplied);
+    event midTermRegisterEvent(string id);
 
     modifier checkMidtermRegistration(string memory id) {
         bool isCropPresent = false;
@@ -103,10 +103,10 @@ contract CropManager {
     }
 
 
-    function midTermRegister(string memory id,string memory progress,uint months,string memory timeofApplied) public checkMidtermRegistration(id) {
+    function midTermRegister(string memory id,string memory progress,string memory months,string memory timeofApplied) public checkMidtermRegistration(id) {
         string memory name = getCropNameById(id);
         midterm.push(MidTerm(id,name,progress,months,timeofApplied,timeofApplied,false,false));
-        emit midTermRegisterEvent(id, progress, months, timeofApplied);
+        emit midTermRegisterEvent(id);
     }
 
     function getMidTerm() view public returns(MidTerm[] memory){

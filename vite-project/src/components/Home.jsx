@@ -102,7 +102,7 @@ const Home = () => {
                     <Link to={`/productDetails/${product.id}`}>
                       <div className="h-1/2 w-full overflow-hidden">
                         <img
-                          src="images/feature.png"
+                          src={`/crops/${product.productName}.jpg`}
                           alt="image"
                           className="bg-cover hover:scale-125 transition duration-500"
                         />
@@ -111,10 +111,8 @@ const Home = () => {
                       <div className=" h-fit w-full flex flex-col m-2">
                         <div className="font-bold p-2">{product.productName}</div>
                         <div className="p-2"> {product.description}</div>
-                        {/* <div className="p-2">{product.quantity}</div> */}
                         <div className="p-2 flex items-center">
-                          <FaRupeeSign className="text-sm" />
-                          <div className="text-lg"> {(product.price).toString()}</div>
+                          <div className="text-lg"> {(product.price).toString()} ETH</div>
                         </div>
                       </div>
                     </Link>
