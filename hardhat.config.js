@@ -7,9 +7,7 @@ module.exports = {
     hardhat: {},
     ganache: {
       url: "http://127.0.0.1:7545",
-      accounts: [
-        "0xd0a9f8bda6ef1aab447c6422fd5abcadaf145329f6e10c1bb3711c95a09b569a",
-      ],
+      accounts: ["REPLACE WITH PRIVATE KEY OF METAMASK ACCOUNT"],
     },
   },
   solidity: {
