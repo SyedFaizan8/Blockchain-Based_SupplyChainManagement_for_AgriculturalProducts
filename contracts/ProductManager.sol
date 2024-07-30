@@ -11,7 +11,6 @@ contract ProductManager is CropManager {
         address ETHAddress;
         string quality;
         uint quantity;
-        string category;
         uint price;
         string description;
         string timeofApplied;
@@ -25,68 +24,19 @@ contract ProductManager is CropManager {
         string id,
         string quality,
         uint quantity,
-        string category,
         uint price,
         string description,
         string timeofApplied
     );
 
-    modifier checkCertificate(string memory id) {
-        bool isCropPresent = false;
-        bool isOwner = false;
-        bool isMidApproved = false;
-        bool isCertificateApproved = false;
-
-        for (uint i = 0; i < crops.length; i++) {
-            if (
-                keccak256(abi.encodePacked(crops[i].id)) ==
-                keccak256(abi.encodePacked(id))
-            ) {
-                isCropPresent = true;
-            }
-            if (crops[i].ETHAddress == msg.sender) {
-                isOwner = true;
-            }
-        }
-
-        for (uint j = 0; j < midterm.length; j++) {
-            if (
-                keccak256(abi.encodePacked(midterm[j].id)) ==
-                keccak256(abi.encodePacked(id))
-            ) {
-                if (midterm[j].isApproved) {
-                    isMidApproved = true;
-                }
-            }
-        }
-
-        for (uint k = 0; k < certificates.length; k++) {
-            if (
-                keccak256(abi.encodePacked(certificates[k].id)) ==
-                keccak256(abi.encodePacked(id))
-            ) {
-                if (certificates[k].isApproved) {
-                    isCertificateApproved = true;
-                }
-            }
-        }
-
-        require(isCropPresent, "Crop ID not found");
-        require(isOwner, "Sender is not the owner of the crop");
-        require(isMidApproved, "MidTerm is not approved");
-        require(!isCertificateApproved, "Certificate is already approved");
-        _;
-    }
-
     function reqCertificate(
         string memory id,
         string memory quality,
         uint quantity,
-        string memory category,
         uint price,
         string memory description,
         string memory timeofApplied
-    ) public checkCertificate(id) {
+    ) public {
         string memory name = getCropNameById(id);
         certificates.push(
             Certificate(
@@ -95,7 +45,6 @@ contract ProductManager is CropManager {
                 msg.sender,
                 quality,
                 quantity,
-                category,
                 price,
                 description,
                 timeofApplied,
@@ -108,7 +57,6 @@ contract ProductManager is CropManager {
             id,
             quality,
             quantity,
-            category,
             price,
             description,
             timeofApplied
@@ -119,59 +67,9 @@ contract ProductManager is CropManager {
         return certificates;
     }
 
-    modifier cropApprovalStatus(string memory id) {
-        bool isApproved = false;
-
-        for (uint i = 0; i < crops.length; i++) {
-            if (
-                keccak256(abi.encodePacked(crops[i].id)) ==
-                keccak256(abi.encodePacked(id))
-            ) {
-                isApproved = crops[i].isApproved;
-                break;
-            }
-        }
-
-        require(!isApproved, "Crop is already approved");
-        _;
-    }
-
-    modifier midtermApprovalStatus(string memory id) {
-        bool isApproved = false;
-
-        for (uint i = 0; i < midterm.length; i++) {
-            if (keccak256(abi.encodePacked(midterm[i].id)) ==keccak256(abi.encodePacked(id))
-            ) {
-                isApproved = midterm[i].isApproved;
-                break;
-            }
-        }
-
-        require(!isApproved, "MidTerm is already approved");
-        _;
-    }
-
-    modifier certificateApprovalStatus(string memory id) {
-        bool isApproved = false;
-
-        for (uint i = 0; i < certificates.length; i++) {
-            if (
-                keccak256(abi.encodePacked(certificates[i].id)) ==
-                keccak256(abi.encodePacked(id))
-            ) {
-                isApproved = certificates[i].isApproved;
-                break;
-            }
-        }
-
-        require(!isApproved, "Certificate is already approved");
-        _;
-    }
-
     struct Product {
         string id;
         string productName;
-        string category;
         uint price;
         uint quantity;
         address ETHAddress;
@@ -182,18 +80,16 @@ contract ProductManager is CropManager {
         string midTermApproved;
         string certRegistered;
         string certApproved;
+        bool show;
     }
 
     Product[] products;
 
-    event approveCropEvent(string id, string time);
-    event approveMidTermEvent(string id, string time);
-    event approveCertificateEvent(string id, string time);
+    event CropEvent(string id, string time);
+    event MidTermEvent(string id, string time);
+    event CertificateEvent(string id, string time);
 
-    function approveCrop(
-        string memory id,
-        string memory time
-    ) public cropApprovalStatus(id) {
+    function approveCrop(string memory id, string memory time) public {
         for (uint i = 0; i < crops.length; i++) {
             if (
                 keccak256(abi.encodePacked(crops[i].id)) ==
@@ -201,15 +97,36 @@ contract ProductManager is CropManager {
             ) {
                 crops[i].isApproved = true;
                 crops[i].timeofVerified = time;
-                emit approveCropEvent(id, time);
+                emit CropEvent(id, time);
             }
         }
     }
 
-    function approveMidTerm(
-        string memory id,
-        string memory time
-    ) public midtermApprovalStatus(id) {
+    function rejectCrop(string memory id, string memory time) public {
+        for (uint i = 0; i < crops.length; i++) {
+            if (
+                keccak256(abi.encodePacked(crops[i].id)) ==
+                keccak256(abi.encodePacked(id))
+            ) {
+                crops[i].isDisapproved = true;
+                crops[i].isApproved = false;
+                crops[i].timeofVerified = time;
+                emit CropEvent(id, time);
+            }
+        }
+    }
+
+    function rejectFarmerCrop(address ETHAddress, string memory time) public {
+        for (uint i = 0; i < crops.length; i++) {
+            if (crops[i].ETHAddress == ETHAddress && !crops[i].isApproved) {
+                crops[i].isDisapproved = true;
+                crops[i].isApproved = false;
+                crops[i].timeofVerified = time;
+            }
+        }
+    }
+
+    function approveMidTerm(string memory id, string memory time) public {
         for (uint i = 0; i < midterm.length; i++) {
             if (
                 keccak256(abi.encodePacked(midterm[i].id)) ==
@@ -217,15 +134,39 @@ contract ProductManager is CropManager {
             ) {
                 midterm[i].isApproved = true;
                 midterm[i].timeofVerified = time;
-                emit approveMidTermEvent(id, time);
+                emit MidTermEvent(id, time);
             }
         }
     }
 
-    function approveCertificate(
-        string memory id,
+    function rejectMidTerm(string memory id, string memory time) public {
+        for (uint i = 0; i < midterm.length; i++) {
+            if (
+                keccak256(abi.encodePacked(midterm[i].id)) ==
+                keccak256(abi.encodePacked(id))
+            ) {
+                midterm[i].isDisapproved = true;
+                midterm[i].isApproved = false;
+                midterm[i].timeofVerified = time;
+                emit MidTermEvent(id, time);
+            }
+        }
+    }
+
+    function rejectFarmerMidTerm(
+        address ETHAddress,
         string memory time
-    ) public certificateApprovalStatus(id) {
+    ) public {
+        for (uint i = 0; i < midterm.length; i++) {
+            if (midterm[i].ETHAddress == ETHAddress && !midterm[i].isApproved) {
+                midterm[i].isDisapproved = true;
+                midterm[i].isApproved = false;
+                midterm[i].timeofVerified = time;
+            }
+        }
+    }
+
+    function approveCertificate(string memory id, string memory time) public {
         for (uint i = 0; i < certificates.length; i++) {
             if (
                 keccak256(abi.encodePacked(certificates[i].id)) ==
@@ -264,7 +205,6 @@ contract ProductManager is CropManager {
                     Product(
                         id,
                         certificates[i].cropName,
-                        certificates[i].category,
                         certificates[i].price,
                         certificates[i].quantity,
                         certificates[i].ETHAddress,
@@ -274,17 +214,52 @@ contract ProductManager is CropManager {
                         midTermRegistered,
                         midTermApproved,
                         certificates[i].timeofApplied,
-                        time
+                        time,
+                        true
                     )
                 );
                 break;
             }
         }
-        emit approveCertificateEvent(id, time);
+        emit CertificateEvent(id, time);
+    }
+
+    function rejectCertificate(string memory id, string memory time) public {
+        for (uint i = 0; i < certificates.length; i++) {
+            if (
+                keccak256(abi.encodePacked(certificates[i].id)) ==
+                keccak256(abi.encodePacked(id))
+            ) {
+                certificates[i].isDisapproved = true;
+                certificates[i].isApproved = false;
+                certificates[i].timeofVerified = time;
+                emit CertificateEvent(id, time);
+                break;
+            }
+        }
+    }
+
+    function rejectFarmerCertificate(address ETHAddress, string memory time) public {
+        for (uint i=0;i<certificates.length;i++){
+            if(certificates[i].ETHAddress == ETHAddress && !certificates[i].isApproved){
+                certificates[i].isDisapproved = true;
+                certificates[i].isApproved = false;
+                certificates[i].timeofVerified = time;
+            }
+        }
     }
 
     function fetchProduct() public view returns (Product[] memory) {
         return products;
+    }
+
+    function hideProduct(address ETHAddress) public {
+        for (uint i = 0; i < products.length; i++) {
+            if (products[i].ETHAddress == ETHAddress) {
+                products[i].show = false;
+                break;
+            }
+        }
     }
 
     struct Item {
@@ -294,9 +269,14 @@ contract ProductManager is CropManager {
 
     function reduceQuantity(Item[] calldata items) public {
         for (uint i = 0; i < products.length; i++) {
-            for (uint j=0;j<items.length;j++){
-                if(keccak256(abi.encodePacked(items[j].id)) == keccak256(abi.encodePacked(products[i].id))){
-                    products[i].quantity = products[i].quantity - items[j].reduce;
+            for (uint j = 0; j < items.length; j++) {
+                if (
+                    keccak256(abi.encodePacked(items[j].id)) ==
+                    keccak256(abi.encodePacked(products[i].id))
+                ) {
+                    products[i].quantity =
+                        products[i].quantity -
+                        items[j].reduce;
                 }
             }
         }

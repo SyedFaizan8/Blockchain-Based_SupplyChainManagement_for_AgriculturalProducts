@@ -14,7 +14,7 @@ describe("Crop and Product testing", function () {
                 reject(error);
             }
         })
-        await ProductManager.cropRegister("CID", "cropName", "cityName", "acre", "months remaining", 5, "timeofApplied");
+        await ProductManager.cropRegister("CID", "cropName", "category", "cityName", "acre", "months remaining", 5, "timeofApplied");
         await eventPromise;
     });
 
@@ -51,7 +51,7 @@ describe("Crop and Product testing", function () {
                 reject(error);
             }
         })
-        await ProductManager.reqCertificate("CID", "quality", 37, "category", 54, "description", "timeofApplied");
+        await ProductManager.reqCertificate("CID", "quality", 37, 54, "description", "timeofApplied");
         await eventPromise;
     });
 
