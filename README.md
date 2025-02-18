@@ -35,3 +35,7 @@ npx hardhat ignition deploy ignition/modules/ProductManager.js
 ```
 npx hardhat test
 ```
+
+## License
+
+[MIT License](LICENSE)
